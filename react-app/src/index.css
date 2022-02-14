@@ -1,0 +1,48 @@
+/* TODO Add site wide styles */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: sofia-pro,Roboto,Helvetica,Arial,sans-serif;
+}
+
+.nav-bar-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 30px 50px;
+}
+.nav-bar-items{
+    display: flex;
+    list-style: none;
+}
+
+.nav-bar-items li{
+    margin: 0 5px;
+    padding: 10px 17px;
+}
+
+.nav-bar-items li > a{
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.sign-up{
+    border: 2px solid var(--purple-primary);
+    background-color: var(--purple-primary);
+    border-radius: 35px;
+}
+
+.sign-up a{
+    color: white;
+}
+
+.sign-up:hover{
+    border-color: var(--darker-purple);
+    background-color: var(--darker-purple);
+    color: lightgray;
+}
+
+.sign-up:active{ 
+    border-color: var(--primary-pink);
+    background-color: var(--primary-pink);
+}
