@@ -1,12 +1,12 @@
 :root {
-    --purple-primary: #6C6CFF;
-    --darker-purple: #4444b5;
-    --light-purple: #a25ddc;
-    --primary-orange: #ff9900;
-    --primary-blue: #009aff;
     --light-blue: #579bfc;
+    --primary-blue: #009aff;
+    --light-purple: #a25ddc;
+    --darker-purple: #4444b5;
+    --purple-primary: #6C6CFF;
+    --primary-orange: #ff9900;
     --primary-salmon: #ff7575;
-    --primary-teal: #00d2d2;
     --darker-teal: #4eccc6;
+    --primary-teal: #00d2d2;
     --primary-pink: #ff158a;
 }
