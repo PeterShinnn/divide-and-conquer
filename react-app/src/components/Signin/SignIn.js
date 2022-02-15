@@ -1,10 +1,12 @@
 import React from 'react';
+import LoginForm from '../Auth/LoginForm';
 
-function SignIn(){
+function SignInPage(){
     return (
         <>
+            <LoginForm />
         </>
     )
 }
 
-export default SignIn;
+export default SignInPage;
