@@ -1,0 +1,13 @@
+.sign-in-nav-bar-container{
+    height: 100px;
+    background-color: antiquewhite;
+}
+
+.sign-in-nav-bar-item{
+    margin: 0 10px;
+}
+
+#sign-in-logo{
+    width: auto;
+    height: 100px;
+}
