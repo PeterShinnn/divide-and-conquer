@@ -1,0 +1,55 @@
+.demo-login-container {
+    display: flex;
+    margin: 35px 0;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.demo-login-btn {
+    color: black;
+    font-size: 15px;
+    margin: 20px auto;
+    padding: 15px 25px;
+    border-radius: 40px;
+    background-color: white;
+    border: 1px solid lightgray;
+}
+
+.demo-login-btn:hover {
+    background-color: lightgray;
+}
+
+.demo-login-btn:active {
+    color: white;
+    background-color: var(--primary-pink);
+}
+
+.demo-login-text {
+    font-family: sans-serif;
+    position: relative;
+    text-align: center;
+    max-width: 600px;
+}
+
+.demo-login-text:before {
+    content: "";
+    display: block;
+    width: 130px;
+    height: 1px;
+    background: lightgray;
+    left: 110%;
+    top: 50%;
+    position: absolute;
+}
+
+.demo-login-text:after {
+    content: "";
+    display: block;
+    width: 130px;
+    height: 1px;
+    background: lightgray;
+    right: 110%;
+    top: 50%;
+    position: absolute;
+}
