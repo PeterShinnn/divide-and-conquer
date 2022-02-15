@@ -2,28 +2,61 @@
 * {
     margin: 0;
     padding: 0;
-    font-family: sofia-pro,Roboto,Helvetica,Arial,sans-serif;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#website-logo{
+    height: 40px;
+    width: auto;
 }
 
 .nav-bar-container{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 30px 50px;
+    margin: 15px 50px;
 }
+
+.nav-bar-container a{
+    color: black;
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 300;
+}
+
+.left-side-nav-bar{
+    display: flex;
+    align-items: center;
+}
+
+.left-side-nav-bar > *{
+    margin: 0 30px;
+}
+
+.left-side-nav-items{
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.left-side-nav-items > *{
+    margin: 0 35px;
+}
+
 .nav-bar-items{
     display: flex;
     list-style: none;
 }
 
 .nav-bar-items li{
-    margin: 0 5px;
+    margin: 0 10px;
     padding: 10px 17px;
 }
 
 .nav-bar-items li > a{
     text-decoration: none;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 .sign-up{

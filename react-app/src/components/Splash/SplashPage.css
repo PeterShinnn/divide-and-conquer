@@ -1,12 +1,159 @@
 .main-container {
-    height: 700px;
-    background-color: #000;
+    display: flex;
+    justify-content: center;
+    height: 800px;
+    background: linear-gradient(0.25turn, #180c64,#000, #2b2b88);
 }
 
-h1, h2 {
+.main-item-container {
+    display: flex;
+    color: white;
+    text-align: center;
+    flex-direction: column;
+}
+
+.splash-slogan {
+    margin-top: 140px;
+    font-size: 75px;
+}
+
+.splash-context-text {
+    font-size: 25px;
+    margin: 20px 0 55px;
+}
+
+.category-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.category-box-container {
+    position: relative;
+}
+
+.category-box {
+    font-size: 15px;
+    font-weight: 300;
+    height: 130px;
+    width: 130px;
+    margin: 10px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+    border: 1px lightgray solid;
+    border-radius: 15px;
+}
+
+.sign-up-btn {
+    margin: 60px auto 0;
+    border: 2px solid var(--purple-primary);
+    background-color: var(--purple-primary);
+    border-radius: 35px;
+    padding: 15px 40px;
+    font-size: 18px;
     color: white;
 }
 
+.icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.sign-up-btn:hover {
+    border-color: var(--darker-purple);
+    background-color: var(--darker-purple);
+    color: lightgray;
+}
+
+.sign-up-btn:active {
+    border-color: var(--primary-pink);
+    background-color: var(--primary-pink);
+}
+
+.check-box {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    left: 15%;
+    top: 15%;
+    background-color: #000;
+}
+
+.CD-box:hover {
+    border-color: var(--primary-pink);
+}
+
+.CD {
+    color: var(--primary-pink);
+}
+
+.IT-box:hover {
+    border-color: var(--light-purple);
+}
+
+.IT {
+    color: var(--light-purple);
+}
+
+.SD-box:hover {
+    border-color: var(--primary-orange);
+}
+
+.SD {
+    color: var(--primary-orange);
+}
+
+.MK-box:hover {
+    border-color: var(--primary-pink);
+}
+
+.MK {
+    color: var(--primary-pink);
+}
+
+.PM-box:hover {
+    border-color: var(--primary-blue);
+}
+
+.PM {
+    color: var(--primary-blue);
+}
+
+.SRM-box:hover {
+    border-color: var(--primary-teal);
+}
+
+.SRM {
+    color: var(--primary-teal);
+}
+
+.TM-box:hover {
+    border-color: var(--light-blue);
+}
+
+.TM {
+    color: var(--light-blue);
+}
+
+.HR-box:hover {
+    border-color: var(--primary-salmon);
+}
+
+.HR {
+    color: var(--primary-salmon);
+}
+
+.OPR-box:hover {
+    border-color: var(--darker-teal);
+}
+
+.OPR {
+    color: var(--darker-teal);
+}
 
 @-webkit-keyframes snowflakes-fall {
     0% {
@@ -51,7 +198,7 @@ h1, h2 {
     }
 
     50% {
-        transform: translateX(80px)
+        transform: translateX(45vw)
     }
 
     100% {
