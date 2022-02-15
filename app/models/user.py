@@ -12,8 +12,6 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
-    workspaces = db.relationship('Workspace', back_populates='user')
-
     @property
     def password(self):
         return self.hashed_password
@@ -24,6 +22,10 @@ class User(db.Model, UserMixin):
 
     def check_password(self, password):
         return check_password_hash(self.password, password)
+
+    workspaces = db.relationship('Workspace', back_populates='user')
+    task_categories = db.relationship('TaskCategory',back_populates='user')
+    tasks = db.relationship('Task', back_populates='user')
 
     def to_dict(self):
         return {

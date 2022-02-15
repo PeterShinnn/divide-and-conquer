@@ -6,12 +6,13 @@ class Workspace(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), nullable=False)
-    user_id = db.Column(db.Integer, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
     updated_at = db.Column(db.DateTime, default=datetime.now())
 
     user = db.relationship('User', back_populates='workspaces')
 
+    task_categories = db.relationship('TaskCategory', back_populates='workspace')
 
     def to_dict(self):
         return {

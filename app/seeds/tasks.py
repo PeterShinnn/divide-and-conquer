@@ -2,19 +2,19 @@ from app.models import db, Task
 
 # Adds a demo user, you can add other users here if you want
 def seed_tasks():
-    task1 = Task(name="Create Database Tables",user_id=1,category_id=1)
-    task2 = Task(name="Add table relations",user_id=1,category_id=1)
-    task3 = Task(name="Create Seed Data",user_id=1,category_id=1)
+    task1 = Task(description="Create Database Tables",user_id=1,category_id=1)
+    task2 = Task(description="Add table relations",user_id=1,category_id=1)
+    task3 = Task(description="Create Seed Data",user_id=1,category_id=1)
 
-    task4 = Task(name="Create Splash Spage",user_id=1,category_id=2)
-    task5 = Task(name="Create Logged in NavBar",user_id=1,category_id=2)
-    task5 = Task(name="Create Workspace Tab",user_id=1,category_id=2)
-    task5 = Task(name="Create Task Board Page",user_id=1,category_id=2)
-    task5 = Task(name="Create Redux Store",user_id=1,category_id=2)
+    task4 = Task(description="Create Splash Spage",user_id=1,category_id=2)
+    task5 = Task(description="Create Logged in NavBar",user_id=1,category_id=2)
+    task5 = Task(description="Create Workspace Tab",user_id=1,category_id=2)
+    task5 = Task(description="Create Task Board Page",user_id=1,category_id=2)
+    task5 = Task(description="Create Redux Store",user_id=1,category_id=2)
 
-    task6 = Task(name="Style Splash Page",user_id=1,category_id=3)
-    task7 = Task(name="Style NavBar & Side NavBar",user_id=1,category_id=3)
-    task8 = Task(name="Style Task Board Page",user_id=1,category_id=3)
+    task6 = Task(description="Style Splash Page",user_id=1,category_id=3)
+    task7 = Task(description="Style NavBar & Side NavBar",user_id=1,category_id=3)
+    task8 = Task(description="Style Task Board Page",user_id=1,category_id=3)
     
     db.session.add(task1)
     db.session.add(task2)

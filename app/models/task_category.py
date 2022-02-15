@@ -5,11 +5,15 @@ class TaskCategory(db.Model):
     __tablename__ = 'taskCategories'
 
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), default="Group")
-    user_id = db.Column(db.Integer, nullable=False)
-    workspace_id = db.Column(db.Integer, nullable=False)
+    name = db.Column(db.String(100), default='Group')
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    workspace_id = db.Column(db.Integer, db.ForeignKey('workspaces.id'), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.now())
     updated_at = db.Column(db.DateTime, default=datetime.now())
+
+    user = db.relationship('User', back_populates='task_categories')
+    workspace = db.relationship('Workspace', back_populates='task_categories')
+    tasks = db.relationship('Task', back_populates='task_category')
 
     def to_dict(self):
         return {
