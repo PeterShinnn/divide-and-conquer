@@ -15,7 +15,8 @@ function TaskBoard() {
         <>
             <div className='taskboard-container'>
                 <SideNavBar />
-                <h2>hello world</h2>
+                <h2>WorkSpace</h2>
+                <h2>Main Content</h2>
             </div>
         </>
     )

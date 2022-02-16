@@ -1,0 +1,30 @@
+.side-nav-bar-container{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--primary-dark);
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-items-btn{
+    display: flex;
+    margin: 20px 0;
+    align-items: center;
+    list-style-type: none;
+    flex-direction: column;
+}
+
+.side-nav-footer{
+    display: flex;
+    flex-direction: column;
+}
+
+.icon{
+    color: white;
+    font-size: 35px;
+    margin-top: 25px;
+}
+
+.logout-btn{
+    margin-bottom: 30px;
+}
