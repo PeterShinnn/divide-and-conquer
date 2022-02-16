@@ -1,9 +1,17 @@
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import { logout } from '../../store/session';
 import smallerLogo from '../../images/smallerLogo.png';
 
 import './SideNavBar.css';
 
 function SideNavBar() {
+    const dispatch = useDispatch()
+    const onLogout = async (e) => {
+        await dispatch(logout());
+    };
+
     return (
         <>
             <div className="side-nav-bar-container">
@@ -16,7 +24,7 @@ function SideNavBar() {
                 <div>
                     <div className="side-nav-footer">
                         <div><i className="fa-brands fa-github-alt icon"></i></div>
-                        <div><i className="fa-solid fa-arrow-right-from-bracket icon logout-btn"></i></div>
+                        <div><i onClick={()=>onLogout()}className="fa-solid fa-arrow-right-from-bracket icon logout-btn"></i></div>
                     </div>
                 </div>
             </div>

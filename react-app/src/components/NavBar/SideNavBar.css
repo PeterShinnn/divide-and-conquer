@@ -1,3 +1,7 @@
+#website-logo{
+    margin-bottom: 15px;
+}
+
 .side-nav-bar-container{
     display: flex;
     flex-direction: column;
@@ -20,9 +24,19 @@
 }
 
 .icon{
+    padding: 10px;
     color: white;
-    font-size: 35px;
-    margin-top: 25px;
+    font-size: 30px;
+    border-radius: 15px;
+    border: 1px solid var(--primary-dark);
+}
+
+.icon:hover{
+    background-color: black;
+}
+
+.icon:active{
+    color: var(--primary-pink);
 }
 
 .logout-btn{
