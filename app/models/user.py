@@ -23,9 +23,9 @@ class User(db.Model, UserMixin):
     def check_password(self, password):
         return check_password_hash(self.password, password)
 
-    workspaces = db.relationship('Workspace', back_populates='user')
-    task_categories = db.relationship('TaskCategory',back_populates='user')
-    tasks = db.relationship('Task', back_populates='user')
+    workspaces = db.relationship('Workspace', back_populates='user',cascade="all, delete-orphan")
+    task_categories = db.relationship('TaskCategory',back_populates='user',cascade="all, delete-orphan")
+    tasks = db.relationship('Task', back_populates='user',cascade="all, delete-orphan")
 
     def to_dict(self):
         return {

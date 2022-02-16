@@ -12,7 +12,7 @@ class Workspace(db.Model):
 
     user = db.relationship('User', back_populates='workspaces')
 
-    task_categories = db.relationship('TaskCategory', back_populates='workspace')
+    task_categories = db.relationship('TaskCategory', back_populates='workspace', cascade="all, delete-orphan")
 
     def to_dict(self):
         return {

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { login } from '../../store/session';
+import { useSelector, useDispatch } from 'react-redux';
 
+import { login } from '../../store/session';
 import './LoginForm.css';
 
 const LoginForm = () => {
@@ -16,14 +16,13 @@ const LoginForm = () => {
     e.preventDefault();
     
     const data = await dispatch(login(email, password));
-    
     if (data) setErrors(data);
   };
 
   const updateEmail = (e) => setEmail(e.target.value);
   const updatePassword = (e) => setPassword(e.target.value);
   
-  if (user) return <Redirect to='/' />;
+  if (user) return <Redirect to='/taskboard' />;
 
   return (
     <div className="log-in-form-container">

@@ -13,7 +13,7 @@ class TaskCategory(db.Model):
 
     user = db.relationship('User', back_populates='task_categories')
     workspace = db.relationship('Workspace', back_populates='task_categories')
-    tasks = db.relationship('Task', back_populates='task_category')
+    tasks = db.relationship('Task', back_populates='task_category', cascade="all, delete-orphan")
 
     def to_dict(self):
         return {
