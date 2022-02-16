@@ -30,15 +30,18 @@ function App() {
           <NavBar />
           <SplashPage />
         </Route>
-        <Route path='/taskboard' exact={true}>
-            <TaskBoard />
-        </Route>
         <Route path='/login' exact={true}>
           <SignInPage />
         </Route>
         <Route path='/sign-up' exact={true}>
           <NavBar />
           <SignUpForm />
+        </Route>
+        <Route path='/taskboard' exact={true}>
+            <TaskBoard />
+        </Route>
+        <Route path='/taskboard/:workspaceId' exact={true}>
+            <TaskBoard />
         </Route>
       </Switch>
     </BrowserRouter>

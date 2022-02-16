@@ -1,9 +1,9 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux'; //, useDispatch
+import { Redirect } from 'react-router-dom';
 
 import SideNavBar from '../NavBar/SideNavBar';
-import WorkspaceTab from './WorkspaceTab';
+import WorkspaceTab from '../Workspace/WorkspaceTab';
 import './TaskBoard.css';
 
 function TaskBoard() {
