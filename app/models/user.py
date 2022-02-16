@@ -32,5 +32,6 @@ class User(db.Model, UserMixin):
             'id': self.id,
             'full_name': self.full_name,
             'username': self.username,
-            'email': self.email
+            'email': self.email,
+            'workspaces': [workspace.to_dict() for workspace in self.workspaces]
         }

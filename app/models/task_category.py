@@ -22,5 +22,6 @@ class TaskCategory(db.Model):
             'user_id': self.user_id,
             'workspace_id': self.workspace_id,
             'created_at': self.created_at,
-            'updated_at': self.updated_at
+            'updated_at': self.updated_at,
+            'tasks': [task.to_dict() for task in self.tasks]
         }

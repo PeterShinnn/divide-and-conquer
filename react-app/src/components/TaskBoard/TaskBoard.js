@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux'; //, useDispatch
 
 import SideNavBar from '../NavBar/SideNavBar';
+import WorkspaceTab from './WorkspaceTab';
 import './TaskBoard.css';
 
 function TaskBoard() {
@@ -15,7 +16,7 @@ function TaskBoard() {
         <>
             <div className='taskboard-container'>
                 <SideNavBar />
-                <h2>WorkSpace</h2>
+                <WorkspaceTab />
                 <h2>Main Content</h2>
             </div>
         </>
