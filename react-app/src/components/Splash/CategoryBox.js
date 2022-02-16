@@ -12,16 +12,25 @@ function CategoryBox() {
     const [checkedHR, setCheckedHR] = useState(false);
     const [checkedOPR, setCheckedOPR] = useState(false);
 
-    const handleClickCD = () => checkedCD ? setCheckedCD(false) : setCheckedCD(true)
-    const handleClickIT = () => checkedIT ? setCheckedIT(false) : setCheckedIT(true)
-    const handleClickSD = () => checkedSD ? setCheckedSD(false) : setCheckedSD(true)
-    const handleClickMX = () => checkedMX ? setCheckedMX(false) : setCheckedMX(true)
-    const handleClickPM = () => checkedPM ? setCheckedPM(false) : setCheckedPM(true)
-    const handleClickSRM = () => checkedSRM ? setCheckedSRM(false) : setCheckedSRM(true)
-    const handleClickTM = () => checkedTM ? setCheckedTM(false) : setCheckedTM(true)
-    const handleClickHR = () => checkedHR ? setCheckedHR(false) : setCheckedHR(true)
-    const handleClickOPR = () => checkedOPR ? setCheckedOPR(false) : setCheckedOPR(true)
-
+    const toggleClass = (target, className) => {
+        if (target.className.includes(className)){
+            let result = target.className.replace(className, '')
+            target.className = result
+        } else {
+            target.className += ` ${className}`
+        }
+    }
+    
+    const handleClickCD = (e) => checkedCD ? setCheckedCD(false) : setCheckedCD(true)
+    const handleClickIT = (e) => checkedIT ? setCheckedIT(false) : setCheckedIT(true)
+    const handleClickSD = (e) => checkedSD ? setCheckedSD(false) : setCheckedSD(true)
+    const handleClickMX = (e) => checkedMX ? setCheckedMX(false) : setCheckedMX(true)
+    const handleClickPM = (e) => checkedPM ? setCheckedPM(false) : setCheckedPM(true)
+    const handleClickSRM = (e) => checkedSRM ? setCheckedSRM(false) : setCheckedSRM(true)
+    const handleClickTM = (e) => checkedTM ? setCheckedTM(false) : setCheckedTM(true)
+    const handleClickHR = (e) => checkedHR ? setCheckedHR(false) : setCheckedHR(true)
+    const handleClickOPR = (e) => checkedOPR ? setCheckedOPR(false) : setCheckedOPR(true)
+    
     return (
         <>
             <div className="category-container">

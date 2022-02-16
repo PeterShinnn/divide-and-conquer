@@ -1,6 +1,6 @@
 import React from 'react';
-import { NavLink, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { NavLink, Link } from 'react-router-dom';
 
 import logo from '../../images/logo.png';
 import LogoutButton from '../Auth/LogoutButton';
@@ -14,21 +14,23 @@ const NavBar = () => {
     sessionLink = (
       <>
         <nav className="nav-bar-container">
-          <div id="logo">
-            <NavLink to='/' exact={true} activeClassName='active'>
-              <img className="website-logo" src={logo} alt="website-logo"/>
-            </NavLink>
+          <div className="left-side-nav-bar">
+            <div id="logo">
+              <NavLink to='/' exact={true} activeClassName='active'>
+                <img id="website-logo" src={logo} alt="website-logo"/>
+              </NavLink>
+            </div>
+            <ul className="left-side-nav-items">
+              <li><Link to={{ pathname: "https://www.linkedin.com/in/petershin731/" }}>Github</Link></li>
+              <li><Link to={{ pathname: "https://github.com/PeterShinnn" }}>Linkedin</Link></li>
+              <li><Link to='#'>AngelList</Link></li>
+            </ul>
           </div>
 
           <ul className="nav-bar-items">
             <li>
-              <NavLink to='/about' exact={true} activeClassName='active'>
-                About
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to='/login' exact={true} activeClassName='active'>
-                Login
+              <NavLink to='/taskboard' exact={true} activeClassName='active'>
+                Task Board
               </NavLink>
             </li>
             <li>

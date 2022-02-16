@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 
 //import ProtectedRoute from './components/Auth/ProtectedRoute';
 import SplashPage from './components/Splash/SplashPage';
+import TaskBoard from './components/TaskBoard/TaskBoard';
 import SignUpForm from './components/Auth/SignUpForm';
 import SignInPage from './components/Signin/SignIn';
 import NavBar from './components/NavBar/NavBar';
@@ -28,6 +29,9 @@ function App() {
         <Route path='/' exact={true}>
           <NavBar />
           <SplashPage />
+        </Route>
+        <Route path='/taskboard' exact={true}>
+            <TaskBoard />
         </Route>
         <Route path='/login' exact={true}>
           <SignInPage />
