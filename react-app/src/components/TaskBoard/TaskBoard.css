@@ -1,5 +1,5 @@
 .taskboard-container{
     display: grid;
     height: 100vh;
-    grid-template-columns: .8fr 1.2fr 8fr;;
+    grid-template-columns: .5fr 1.5fr 8fr;;
 }

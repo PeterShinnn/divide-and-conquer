@@ -1,42 +1,48 @@
 #modal {
-    position: fixed;
     top: 0;
-    right: 0;
     left: 0;
+    right: 0;
     bottom: 0;
+
     display: flex;
-    justify-content: center;
+    position: fixed;
     align-items: center;
-    z-index: 5;
+    justify-content: center;
 }
 
 #modal-background {
-    position: fixed;
     top: 0;
-    right: 0;
     left: 0;
+    right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
+    
+    position: fixed;
+    background-color: rgba(243, 242, 239, 0.7);
 }
 
 #modal-content {
+    width: 500px;
+    height: 500px;
+    border-radius: 40px;
+
+    display: flex;
     position: absolute;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     background-color: white;
+}
+
+
+#create-workspace-modal-content {
     width: 450px;
     height: 300px;
     border-radius: 6px;
+
     display: flex;
-    flex-direction: column;
+    position: absolute;
     align-items: center;
+    flex-direction: column;
     justify-content: center;
-
-}
-
-#modal-menu-background {
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    /* background-color: rgba(0, 0, 0, 0.7); */
+    background-color: white;
 }

@@ -4,7 +4,6 @@ import './Modal.css';
 
 const ModalContext = React.createContext();
 
-
 export function ModalProvider({ children }) {
   const modalRef = useRef();
   const [value, setValue] = useState();
@@ -32,6 +31,21 @@ export function Modal({ onClose, children }) {
     <div id="modal">
       <div id="modal-background" onClick={onClose} />
       <div id="modal-content">
+        {children}
+      </div>
+    </div>,
+    modalNode
+  );
+}
+
+export function AddWorkapceModal({ onClose, children }) {
+  const modalNode = useContext(ModalContext);
+  if (!modalNode) return null;
+
+  return ReactDOM.createPortal(
+    <div id="modal">
+      <div id="modal-background" onClick={onClose} />
+      <div id="create-workspace-modal-content">
         {children}
       </div>
     </div>,
