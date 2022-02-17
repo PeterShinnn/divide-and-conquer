@@ -9,6 +9,13 @@
     margin-right: 5px;
 }
 
+.workspace-error-container{
+    width: 81%;
+    color: red;
+    margin-left: 30px;
+    margin-bottom: 15px;
+}
+
 .ws-form-input{
     display: flex;
     justify-items: center;

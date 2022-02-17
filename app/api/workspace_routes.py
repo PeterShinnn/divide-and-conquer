@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
 from app.models import db, Workspace
-from flask_login import login_required
-from app.forms.workspace_form import WorkspaceForm
+from flask_login import login_required, current_user
+from app.forms import WorkSpaceForm
 
 workspace_routes = Blueprint('workspaces', __name__)
 
@@ -32,11 +32,11 @@ def get_workspace_by_id(id):
 @workspace_routes.route('/create', methods=['POST'])
 @login_required
 def create_workspace():
-    form = WorkspaceForm()
+    form = WorkSpaceForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        workspace = Workspace(name=form['workspace'])
+        workspace = Workspace(name=form.data['name'], user_id=current_user.id)
         db.session.add(workspace)
         db.session.commit()
         return workspace.to_dict()

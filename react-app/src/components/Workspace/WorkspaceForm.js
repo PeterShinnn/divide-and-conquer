@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux'; //, useSelector 
 
+import { createWorkspace } from '../../store/workspace';
 import './WorkspaceForm.css';
 
 const CreateWorkSpaceForm = () => {
 
     const dispatch = useDispatch();
-    const sessionUser = useSelector((state) => state.session.user);
+    //const sessionUser = useSelector((state) => state.session.user);
 
     const [name, setName] = useState("");
-    const [errors, setErrors] = useState([]);
+    //const [errors, setErrors] = useState([]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        const data = await dispatch();
-
-        if (data) setErrors(data);
+        dispatch(createWorkspace(name));
+        //const data = await dispatch(createWorkspace(name));
+        //if (data) setErrors(data);
     }
 
     return (
@@ -25,13 +25,12 @@ const CreateWorkSpaceForm = () => {
                 <h2>Create Workspace</h2>
                 <i className="fa-solid fa-x close-icon"></i>
             </div>
-            <form onSubmit={handleSubmit}>
-                <div className="workspace-error-container">
+            <form onSubmit={e => handleSubmit(e)}>
+                {/* <div className="workspace-error-container">
                     {errors.map((error, ind) => (
                         <div key={ind}>{error}</div>
-
                     ))}
-                </div>
+                </div> */}
                 <div className="ws-form-input">
                     <label>Workspace name:</label>
                     <input
