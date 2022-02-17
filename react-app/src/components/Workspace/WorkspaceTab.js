@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 
 import { getWorkspaceByUser, deleteWorkspaceById } from '../../store/workspace';
+import CreateWorkSpaceForm from './WorkspaceForm';
 import { Modal } from '../../context/Modal';
 import './WorkspaceTab.css';
 
@@ -33,7 +34,7 @@ function WorkspaceTab() {
                     <div onClick={() => setShowModal(true)} className="add-workspace-btn">+ Add New Board</div>
                     {showModal && (
                         <Modal onClose={() => setShowModal(false)}>
-                            <h2>hello</h2>
+                            <CreateWorkSpaceForm />
                         </Modal>
                     )}
                     <hr />

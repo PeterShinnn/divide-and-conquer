@@ -1,0 +1,74 @@
+.workspace-form-header{
+    display: flex;
+    justify-content: space-between;
+    margin: 30px;
+}
+
+.close-icon{
+    font-size: 20px;
+    margin-right: 5px;
+}
+
+.ws-form-input{
+    display: flex;
+    justify-items: center;
+    flex-direction: column;
+    margin: 10px 30px 10px;
+
+    padding-bottom: 20px;
+    border-bottom: 1px solid lightgray;
+}
+
+.workspace-input{
+    width: 90%;
+    height: 50px;
+    margin-top: 10px;
+    padding-left: 10px;
+    caret-color: black;
+}
+
+.workspace-input:focus{
+    border: 2px solid var(--primary-blue);
+}
+
+.fake-tag-line{
+    font-size: 15px;
+    margin: 15px 30px;
+}
+
+.fake-category{
+    display: grid;
+    justify-items: center;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.fake-category-div{
+    width: 80%;
+    display: flex;
+    align-items: center;
+}
+
+.fake-category-div > *{
+    margin: 15px 4px;
+}
+
+.fake-category-div label{
+    font-size: 16px;
+}
+
+.create-workspace-btn{
+    border: none;
+    padding: 20px;
+    color: white;
+    border-radius: 10px;
+    margin: 15px 0 0px 30px;
+    background-color: var(--primary-blue);
+}
+
+.create-workspace-btn:hover{
+    background-color: var(--darker-purple);
+}
+
+.create-workspace-btn:active{
+    background-color: var(--primary-pink);
+}

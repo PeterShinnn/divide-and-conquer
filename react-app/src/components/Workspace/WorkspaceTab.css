@@ -12,7 +12,6 @@ hr{
     display: flex;
     align-items: center;
     flex-direction: column;
-    caret-color: transparent;
 }
 
 .workspace-title-tag{

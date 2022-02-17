@@ -4,10 +4,10 @@
 
 .side-nav-bar-container{
     display: flex;
-    flex-direction: column;
-    background-color: var(--primary-dark);
-    justify-content: space-between;
     align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--primary-dark);
 }
 
 .menu-items-btn{

@@ -32,20 +32,20 @@
 }
 
 .category-box {
-    font-size: 15px;
-    font-weight: 300;
-    height: 130px;
     width: 130px;
     margin: 10px;
-    color: white;
+    height: 130px;
+    font-size: 15px;
+    font-weight: 300;
+    border-radius: 15px;
     display: flex;
+    color: white;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
     box-sizing: border-box;
+    justify-content: center;
     overflow-wrap: break-word;
     border: 1px lightgray solid;
-    border-radius: 15px;
 }
 
 .sign-up-btn {
