@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 
 import { getWorkspaceByUser, deleteWorkspaceById } from '../../store/workspace';
-import { AddWorkapceModal } from '../../context/Modal';
+import { Modal } from '../../context/Modal';
 import './WorkspaceTab.css';
 
 function WorkspaceTab() {
@@ -13,10 +13,14 @@ function WorkspaceTab() {
 
     const [showModal, setShowModal] = useState(false);
 
+    // const handleModal = () => {
+    //     setShowModal(true)
+    // }
+
     useEffect(() => {
         dispatch(getWorkspaceByUser(sessionUser?.id));
     }, [dispatch, sessionUser])
-    
+
     return (
         <>
             <div className="entire-workspace-container">
@@ -28,9 +32,9 @@ function WorkspaceTab() {
                     </div>
                     <div onClick={() => setShowModal(true)} className="add-workspace-btn">+ Add New Board</div>
                     {showModal && (
-                        <AddWorkapceModal onClose={() => setShowModal(false)}>
+                        <Modal onClose={() => setShowModal(false)}>
                             <h2>hello</h2>
-                        </AddWorkapceModal>
+                        </Modal>
                     )}
                     <hr />
                     {workspaces?.map(workspace => (
