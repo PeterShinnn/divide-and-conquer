@@ -23,7 +23,7 @@
     flex-direction: column;
 }
 
-.icon{
+.nav-icon{
     padding: 10px;
     color: white;
     font-size: 30px;
@@ -31,14 +31,14 @@
     border: 1px solid var(--primary-dark);
 }
 
-.icon:hover{
+.nav-icon:hover{
     background-color: black;
 }
 
-.icon:active{
+.nav-icon:active{
     color: var(--primary-pink);
 }
 
-.logout-btn{
+.nav-logout-btn{
     margin-bottom: 30px;
 }

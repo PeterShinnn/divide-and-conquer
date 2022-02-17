@@ -1,8 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from "react-router-dom";
 
-import { getWorkspaceByUser } from '../../store/workspace';
+import { getWorkspaceByUser, deleteWorkspaceById } from '../../store/workspace';
+import { AddWorkapceModal } from '../../context/Modal';
 import './WorkspaceTab.css';
 
 function WorkspaceTab() {
@@ -10,10 +11,12 @@ function WorkspaceTab() {
     const sessionUser = useSelector(state => state.session.user);
     const workspaces = useSelector(state => state.workspaces?.workspaces);
 
+    const [showModal, setShowModal] = useState(false);
+
     useEffect(() => {
         dispatch(getWorkspaceByUser(sessionUser?.id));
     }, [dispatch, sessionUser])
-
+    
     return (
         <>
             <div className="entire-workspace-container">
@@ -23,15 +26,20 @@ function WorkspaceTab() {
                         <i className="fa-solid fa-briefcase briefcase-icon"></i>
                         <p>My Workspace</p>
                     </div>
-                    <div className="add-workspace-btn">+ Add New Board</div>
+                    <div onClick={() => setShowModal(true)} className="add-workspace-btn">+ Add New Board</div>
+                    {showModal && (
+                        <AddWorkapceModal onClose={() => setShowModal(false)}>
+                            <h2>hello</h2>
+                        </AddWorkapceModal>
+                    )}
                     <hr />
                     {workspaces?.map(workspace => (
                         <div key={workspace?.id} className="single-workspace">
                             <div className="workspace-detail-container">
                                 <div className="workspace-detail">
-                                    <Link to='#'>{workspace?.name}</Link> {/*/taskboard/:workspaceId' */}
+                                    <Link to={`/taskboard/${workspace?.id}`}>{workspace?.name}</Link> {/*/taskboard/:workspaceId' */}
                                 </div>
-                                <i onClick={() => console.log("add delete func")} className="fa-solid fa-trash-can delete-icon"></i>
+                                <i onClick={() => dispatch(deleteWorkspaceById(workspace?.id))} className="fa-solid fa-trash-can delete-icon"></i>
                             </div>
 
                         </div>
