@@ -34,7 +34,7 @@ function WorkspaceTab() {
                     <div onClick={() => setShowModal(true)} className="add-workspace-btn">+ Add New Board</div>
                     {showModal && (
                         <Modal onClose={() => setShowModal(false)}>
-                            <CreateWorkSpaceForm />
+                            <CreateWorkSpaceForm onClose={() => setShowModal(false)}/>
                         </Modal>
                     )}
                     <hr />

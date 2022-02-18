@@ -4,18 +4,22 @@ import { useDispatch } from 'react-redux'; //, useSelector
 import { createWorkspace } from '../../store/workspace';
 import './WorkspaceForm.css';
 
-const CreateWorkSpaceForm = () => {
+const CreateWorkSpaceForm = ({onClose}) => {
 
     const dispatch = useDispatch();
-    //const sessionUser = useSelector((state) => state.session.user);
+    // const sessionUser = useSelector((state) => state.session.user);
 
     const [name, setName] = useState("");
     //const [errors, setErrors] = useState([]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        dispatch(createWorkspace(name));
-        //const data = await dispatch(createWorkspace(name));
+        //dispatch(createWorkspace(name));
+
+        const data = dispatch(createWorkspace(name));
+        if (data) {
+            onClose()
+        }
         //if (data) setErrors(data);
     }
 
@@ -23,14 +27,14 @@ const CreateWorkSpaceForm = () => {
         <>
             <div className="workspace-form-header">
                 <h2>Create Workspace</h2>
-                <i className="fa-solid fa-x close-icon"></i>
+                <i onClick={onClose}className="fa-solid fa-x close-icon"></i>
             </div>
             <form onSubmit={e => handleSubmit(e)}>
-                {/* <div className="workspace-error-container">
-                    {errors.map((error, ind) => (
+                <div className="workspace-error-container">
+                    {/* {errors.map((error, ind) => (
                         <div key={ind}>{error}</div>
-                    ))}
-                </div> */}
+                    ))} */}
+                </div>
                 <div className="ws-form-input">
                     <label>Workspace name:</label>
                     <input

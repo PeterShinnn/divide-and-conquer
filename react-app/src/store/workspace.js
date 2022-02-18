@@ -1,5 +1,6 @@
 const GET_WORKSPACE = 'workspace/GET_WORKSPACE';
 const ADD_WORKSPACE = 'workspace/ADD_WORKSPACE';
+const EDIT_WORKSPACE = 'workspace/EDIT_WORKSPACE';
 const DELETE_WORKSPACE = 'workspace/DELETE_WORKSPACE';
 
 
@@ -15,6 +16,12 @@ const addWorkspace = (workspace) => ({
 const getWorkspace = (workspaces) => ({
     type: GET_WORKSPACE,
     workspaces
+})
+
+// U
+const updateWorkspaceName = (workspace) => ({
+    type: EDIT_WORKSPACE,
+    workspace
 })
 
 // D
@@ -68,8 +75,32 @@ export const getWorkspaceByUser = (id) => async (dispatch) => {
     } else {
         return ['An error occurred. Please try again.'];
     }
+}
 
-    return;
+// U
+export const editWorkspace = (id, name) => async (dispatch) => {
+    const response = await fetch(`/api/workspaces/${id}/edit`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({id, name})
+    })
+
+    if (response.ok){
+        const workspaces = await response.json();
+        dispatch(updateWorkspaceName(workspaces));
+
+        return workspaces;
+    } else if (response.status < 500) {
+        const data = await response.json();
+
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return ['An error occurred. Please try again.'];
+    }
 }
 
 // D
@@ -89,7 +120,6 @@ export const deleteWorkspaceById = (id) => async (dispatch) => {
     } else {
         return ['An error occurred. Please try again.'];
     }
-    return;
 }
 
 const reducer = (state = {}, action) => {
@@ -97,11 +127,21 @@ const reducer = (state = {}, action) => {
     switch (action.type) {
         case ADD_WORKSPACE:
             newState = { ...state }
-            newState.workspaces.push(action.workspace)
+            newState.workspaces =[...newState.workspaces, action.workspace]
             return newState;
         case GET_WORKSPACE:
             newState = { ...state, ...action.workspaces }
             return newState;
+        case EDIT_WORKSPACE:
+            newState = { ...state }
+            let newArr = [...newState.workspaces]
+            for(let i=0; i<newArr.length; i++){
+                if (newArr[i].id === action.workspace.id){
+                    newArr[i] = action.workspace;
+                }
+            }
+            newState.workspaces = newArr;
+            return newState
         case DELETE_WORKSPACE:
             newState = { ...state }
             newState.workspaces = newState.workspaces.filter(w => w.id !== action.workspaceId)
