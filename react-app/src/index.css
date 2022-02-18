@@ -3,6 +3,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    caret-color: transparent;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -13,16 +14,16 @@
 
 .nav-bar-container{
     display: flex;
+    margin: 15px 50px;
     align-items: center;
     justify-content: space-between;
-    margin: 15px 50px;
 }
 
 .nav-bar-container a{
     color: black;
     font-size: 16px;
-    text-decoration: none;
     font-weight: 300;
+    text-decoration: none;
 }
 
 .left-side-nav-bar{
@@ -36,8 +37,8 @@
 
 .left-side-nav-items{
     display: flex;
-    align-items: center;
     list-style: none;
+    align-items: center;
 }
 
 .left-side-nav-items > *{
@@ -55,8 +56,8 @@
 }
 
 .nav-bar-items li > a{
-    text-decoration: none;
     font-size: 16px;
+    text-decoration: none;
 }
 
 .sign-up{
