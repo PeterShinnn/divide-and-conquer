@@ -11,20 +11,16 @@ function WorkSpaceDetail() {
     const workspaces = useSelector(state => state.workspaces)
     
     const [wName, setWName] = useState("");
-    const [newName, setNewName] = useState("");
 
     const workspace = workspaces?.workspaces?.filter( w => w.id === parseInt(workspaceId) )
 
-    useEffect(() => {
-    },[workspaceId])
-
     useEffect(()=>{
         if (workspace) setWName(workspace[0]?.name)
-    },[dispatch, workspace])
+    },[dispatch, workspaceId])
 
     const changeName = async (e) => {
         e.preventDefault();
-        dispatch(editWorkspace(workspaceId, newName));
+        dispatch(editWorkspace(workspaceId, wName));
     }
 
     return (
@@ -35,9 +31,9 @@ function WorkSpaceDetail() {
                         <form onSubmit={(e) => changeName(e)}>
                             <input 
                                 type="text"
-                                defaultValue={wName}
+                                value={wName}
                                 className="form-edit-input"
-                                onChange={(e) => setNewName(e.target.value)} />
+                                onChange={(e) => setWName(e.target.value)} />
                         </form>
                     </div>
                 </div> : 

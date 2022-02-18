@@ -22,7 +22,7 @@ const LoginForm = () => {
   const updateEmail = (e) => setEmail(e.target.value);
   const updatePassword = (e) => setPassword(e.target.value);
   
-  if (user) return <Redirect to='/taskboard/1' />;
+  if (user) return <Redirect to='/taskboard/' />;
 
   return (
     <div className="log-in-form-container">
