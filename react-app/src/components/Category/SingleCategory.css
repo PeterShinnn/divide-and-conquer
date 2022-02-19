@@ -26,3 +26,20 @@
 .category-item{
     margin-right: 100px; 
 }
+
+.category-name-input{
+    border: none;
+    padding: 5px;
+    font-size: 18px;
+    caret-color: black;
+}
+.category-name-input:hover{
+    border-radius: 5px;
+    border: 1px dotted black;
+}
+
+.category-name-input:focus{
+    outline: none;
+    border-radius: 5px;
+    border: 2px solid var(--primary-blue);
+}

@@ -24,7 +24,7 @@ function SideNavBar() {
                 <div>
                     <div className="side-nav-footer">
                         <div><i className="fa-brands fa-github-alt nav-icon"></i></div>
-                        <div><i onClick={()=>onLogout()}className="fa-solid fa-arrow-right-from-bracket nav-icon logout-btn"></i></div>
+                        <div><i onClick={()=>onLogout()} className="fa-solid fa-arrow-right-from-bracket nav-icon logout-btn"></i></div>
                     </div>
                 </div>
             </div>

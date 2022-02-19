@@ -28,9 +28,9 @@ def get_one_category(id):
     category = TaskCategory.query.get(id)
     return category.to_dict()
 
-@category_routes.route('/<int:id>/edit', methods=['POST'])
+@category_routes.route('/create', methods=['POST'])
 @login_required
-def create_category(id):
+def create_category():
     form = CategoryForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 

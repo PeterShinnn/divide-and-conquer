@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux'; //, useDispatch 
+import { useDispatch, useSelector } from 'react-redux'; 
 
-import { editWorkspace } from "../../store/workspace";
+import { createCategory, editWorkspace } from "../../store/workspace";
 import './WorkSpaceDetail.css';
 import SingleCategory from "../Category/SingleCategory";
 
@@ -24,6 +24,10 @@ function WorkSpaceDetail() {
         dispatch(editWorkspace(workspaceId, wName));
     }
 
+    const createNewCategory = (id) => {
+        dispatch(createCategory(id, "New Category"))
+    }
+
     return (
         <>
             {workspaceId ?
@@ -43,7 +47,7 @@ function WorkSpaceDetail() {
                         </div>
                     </div>
                     <div>
-                        <button className="add-category-btn">Add Category</button>
+                        <button onClick={() => createNewCategory(workspaceId)} className="add-category-btn">Add Category</button>
                     </div>
                     { workspace ? (workspace[0].categories.map(category => (
                         <SingleCategory key={category.id} category={category}/>)
