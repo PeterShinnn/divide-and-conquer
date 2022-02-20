@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'; 
-import { editCategoryName } from '../../store/workspace';
+import { editCategoryName, deleteCategoryById } from '../../store/workspace';
 import './SingleCategory.css';
 
 function SingleCategory({ category }) {
@@ -10,6 +10,10 @@ function SingleCategory({ category }) {
     const handleChange = (e) => {
         e.preventDefault();
         dispatch(editCategoryName(category.id, categoryName));
+    }
+
+    const handleDelete = () => {
+        dispatch(deleteCategoryById(category.id))
     }
 
     return (
@@ -31,7 +35,7 @@ function SingleCategory({ category }) {
                 <div className="category-items-container">
                     <div className="category-item">Deadline</div>
                     <div className="category-item">Status</div>
-                    <div className="category-item"><i className="fa-solid fa-trash-can"></i></div>
+                    <div className="category-item"><i onClick={() => handleDelete()} className="fa-solid fa-trash-can"></i></div>
                 </div>
 
             </div>

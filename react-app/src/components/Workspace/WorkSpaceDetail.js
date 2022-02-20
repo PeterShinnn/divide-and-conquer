@@ -49,7 +49,7 @@ function WorkSpaceDetail() {
                     <div>
                         <button onClick={() => createNewCategory(workspaceId)} className="add-category-btn">Add Category</button>
                     </div>
-                    { workspace ? (workspace[0].categories.map(category => (
+                    { workspace ? (workspace[0]?.categories?.map(category => (
                         <SingleCategory key={category.id} category={category}/>)
                     )) : console.log(workspace) 
                     }
