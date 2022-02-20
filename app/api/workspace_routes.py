@@ -1,5 +1,6 @@
-from flask import Blueprint, jsonify, request
+from datetime import datetime
 from app.models import db, Workspace
+from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
 from app.forms import WorkSpaceForm, EditWorkSpaceForm
 
@@ -38,6 +39,7 @@ def update_workspace(id):
     if form.validate_on_submit():
         workspace = Workspace.query.get(id)
         workspace.name = form.data['name']
+        workspace.updated_at = datetime.now()
         db.session.commit()
         return workspace.to_dict()
 

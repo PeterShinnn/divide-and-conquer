@@ -1,3 +1,46 @@
+.workspace-full-detail-container{
+    margin: 10px;
+}
+
+.workspace-full-detail-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 15px;
+    border-bottom: 1px solid lightgray;
+}
+
+.workspace-name-edit-input{
+    display: flex;
+}
+
+.right-side-detail-header{
+    display: flex;
+}
+
 .form-edit-input{
+    width: 15vw;
+    height: 5vh;
+    font-size: 16px;
+    padding-left: 10px;
     caret-color: black;
+}
+
+.add-category-btn{
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    margin: 20px 20px 5px;
+    background-color: var(--primary-blue);
+}
+
+.add-category-btn:hover{
+    cursor: pointer;
+    background-color: var(--darker-purple);
+}
+
+.add-category-btn:active{
+    background-color: var(--primary-pink);
 }

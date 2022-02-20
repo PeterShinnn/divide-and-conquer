@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux'; //, useDispatch 
+import { useDispatch, useSelector } from 'react-redux'; 
 
-import { editWorkspace } from "../../store/workspace";
+import { createCategory, editWorkspace } from "../../store/workspace";
 import './WorkSpaceDetail.css';
+import SingleCategory from "../Category/SingleCategory";
 
 function WorkSpaceDetail() {
     const dispatch = useDispatch();
@@ -23,20 +24,38 @@ function WorkSpaceDetail() {
         dispatch(editWorkspace(workspaceId, wName));
     }
 
+    const createNewCategory = (id) => {
+        dispatch(createCategory(id, "New Category"))
+    }
+
     return (
         <>
             {workspaceId ?
                 <div className="workspace-full-detail-container">
                     <div className="workspace-full-detail-header">
-                        <form onSubmit={(e) => changeName(e)}>
+                        <form className="workspace-name-edit-input" onSubmit={(e) => changeName(e)}>
                             <input 
                                 type="text"
                                 value={wName}
                                 className="form-edit-input"
                                 onChange={(e) => setWName(e.target.value)} />
                         </form>
+                        <div className="right-side-detail-header">
+                            <div className="">Invite</div>
+                            <div className="">More info</div>
+                            <div className="">...</div>
+                        </div>
                     </div>
-                </div> : 
+                    <div>
+                        <button onClick={() => createNewCategory(workspaceId)} className="add-category-btn">Add Category</button>
+                    </div>
+                    { workspace ? (workspace[0]?.categories?.map(category => (
+                        <SingleCategory key={category.id} category={category}/>)
+                    )) : console.log(workspace) 
+                    }
+                </div> 
+                
+                : 
                 <div>
                     <h2>Please Select a Workspace</h2>
                 </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import { getWorkspaceByUser, deleteWorkspaceById } from '../../store/workspace';
 import CreateWorkSpaceForm from './WorkspaceForm';
@@ -9,14 +9,16 @@ import './WorkspaceTab.css';
 
 function WorkspaceTab() {
     const dispatch = useDispatch();
+    const history = useHistory();
     const sessionUser = useSelector(state => state.session.user);
     const workspaces = useSelector(state => state.workspaces?.workspaces);
 
     const [showModal, setShowModal] = useState(false);
 
-    // const handleModal = () => {
-    //     setShowModal(true)
-    // }
+    const handleDelete = (workspace) => {
+        dispatch(deleteWorkspaceById(workspace?.id))
+        history.push('/taskboard')
+    }
 
     useEffect(() => {
         dispatch(getWorkspaceByUser(sessionUser?.id));
@@ -44,7 +46,7 @@ function WorkspaceTab() {
                                 <div className="workspace-detail">
                                     <Link to={`/taskboard/${workspace?.id}`}>{workspace?.name}</Link> {/*/taskboard/:workspaceId' */}
                                 </div>
-                                <i onClick={() => dispatch(deleteWorkspaceById(workspace?.id))} className="fa-solid fa-trash-can delete-icon"></i>
+                                <i onClick={() => handleDelete(workspace)} className="fa-solid fa-trash-can delete-icon"></i>
                             </div>
 
                         </div>

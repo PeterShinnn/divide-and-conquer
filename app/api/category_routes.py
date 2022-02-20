@@ -1,6 +1,7 @@
+from datetime import datetime
+from app.models import db, TaskCategory
 from flask import Blueprint, jsonify, request
 from flask_login import login_required, current_user
-from app.models import db, TaskCategory
 from app.forms import CategoryForm, EditCategoryForm
 
 category_routes = Blueprint('categories', __name__)
@@ -28,9 +29,9 @@ def get_one_category(id):
     category = TaskCategory.query.get(id)
     return category.to_dict()
 
-@category_routes.route('/<int:id>/edit', methods=['POST'])
+@category_routes.route('/create', methods=['POST'])
 @login_required
-def create_category(id):
+def create_category():
     form = CategoryForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
@@ -53,8 +54,20 @@ def edit_category(id):
     if form.validate_on_submit():
         category = TaskCategory.query.get(id)
         category.name = form.data['name']
+        category.updated_at = datetime.now()
         db.session.commit()
 
         return category.to_dict()
 
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+
+@category_routes.route('/<int:id>/delete', methods=['DELETE'])
+@login_required
+def delete_category(id):
+    category = TaskCategory.query.get(id)
+
+    db.session.delete(category);
+    db.session.commit()
+    
+    return category.to_dict()
