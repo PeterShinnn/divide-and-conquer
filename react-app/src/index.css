@@ -7,6 +7,10 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+input{
+    caret-color: black;
+}
+
 #website-logo{
     height: 40px;
     width: auto;

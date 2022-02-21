@@ -65,9 +65,9 @@ def create_workspace():
 @workspace_routes.route('/<int:id>/delete', methods=['DELETE'])
 @login_required
 def delete_workspace(id):
-    workspace = Workspace.query.get(id);
+    workspace = Workspace.query.get(id)
     
-    db.session.delete(workspace);
+    db.session.delete(workspace)
     db.session.commit()
 
     return workspace.to_dict()

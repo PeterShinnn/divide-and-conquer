@@ -21,6 +21,12 @@ def get_all_tasks():
     tasks = Task.query.all()
     return {'tasks': [task.to_dict() for task in tasks]}
 
+@task_routes.route('/<int:id>')
+@login_required
+def get_task_by_id(id):
+    task = Task.query.get(id)
+    return task.to_dict()
+
 @task_routes.route('/create', methods=["POST"])
 @login_required
 def create_task():
@@ -51,9 +57,12 @@ def edit_task():
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 
-
-@task_routes.route('/<int:id>')
+@task_routes.route('/<int:id>/delete', methods=["DELETE"])
 @login_required
-def get_task_by_id(id):
+def delete_task(id):
     task = Task.query.get(id)
+    
+    db.session.delete(task)
+    db.session.commit()
+
     return task.to_dict()

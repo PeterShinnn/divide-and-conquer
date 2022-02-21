@@ -9,6 +9,7 @@ const EDIT_CATEGORY = 'category/EDIT_CATEGORY';
 
 const DELETE_WORKSPACE = 'workspace/DELETE_WORKSPACE';
 const DELETE_CATEGORY = 'category/DELETE_CATEGORY';
+const DELETE_TASK = 'task/DELETE_TASK';
 
 // CRUD
 // C
@@ -55,6 +56,10 @@ const removeCategory = (category) => ({
     category
 });
 
+const removeTask = (task) => ({
+    type: DELETE_TASK,
+    task
+})
 
 // C
 export const createWorkspace = (name) => async (dispatch) => {
@@ -245,6 +250,30 @@ export const deleteCategoryById = (id) => async (dispatch) => {
     }
 }
 
+export const deleteTaskById = (id) => async (dispatch) => {
+    const response = await fetch(`/api/tasks/${id}/delete`, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+
+    if (response.ok) {
+        const task = await response.json()
+        dispatch(removeTask(task));
+
+        return task
+    } else if (response.status < 500) {
+        const data = await response.json();
+
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return ['An error occurred. Please try again.'];
+    }
+}
+
 const reducer = (state = {}, action) => {
     let newState = {};
     let newArr = [];
@@ -347,6 +376,24 @@ const reducer = (state = {}, action) => {
             newState.workspaces = newArr;
             return newState;
 
+        case DELETE_TASK:
+            newState = { ...state };
+            newArr = [ ...newState.workspaces ];
+
+            for(let i=0; i<newArr.length; i++){
+                for(let j=0; j<newArr[i].categories.length;j++){
+                    if (newArr[i].categories[j].id === action.task.category_id){
+                        workspace_idx = i;
+                        category_idx = j;
+                        break;
+                    }
+                }
+            }
+
+            newArr[workspace_idx].categories[category_idx].tasks = newArr[workspace_idx].categories[category_idx].tasks.filter(task => task.id !== action.task.id)
+            newState.workspaces = newArr;
+            return newState;
+            
         default:
             return state;
     }

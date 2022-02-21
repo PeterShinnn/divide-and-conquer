@@ -1,13 +1,20 @@
 import React, { useState } from "react";
+import { useDispatch } from 'react-redux';
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import './SingleTask.css';
+import { deleteTaskById } from "../../store/workspace";
 
 function SingleTask({ task }) {
+    const dispatch = useDispatch();
+
     const [startDate, setStartDate] = useState(new Date());
-    
     const [taskDescription, setTaskDescription] = useState(task.description)
+
+    const handleDeleteTask = () => {
+        dispatch(deleteTaskById(task.id));
+    }
 
     return (
         <>
@@ -38,7 +45,9 @@ function SingleTask({ task }) {
                             <option className="status-option">Stuck</option>
                         </select>
                     </div>
-                    <div className="task-info"><i className="fa-solid fa-trash-can task-trash-icon"></i></div>
+                    <div className="task-info">
+                        <i onClick={() => handleDeleteTask()} className="fa-solid fa-trash-can task-trash-icon"></i>
+                    </div>
                 </div>
             </div>
 
