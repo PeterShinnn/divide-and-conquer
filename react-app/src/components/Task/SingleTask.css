@@ -1,0 +1,56 @@
+.single-task-information-container{
+    width: 85%;
+    display: flex;
+    margin: 0 50px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.single-task-information{
+    height: 30px;
+    display: flex;
+    align-items: center;
+    background-color: var(--off-white);
+}
+
+.calendar-container{
+    position: relative;
+}
+
+.calendar-picker{
+    height: 30px;
+    border: none;
+    font-size: 16px;
+    background-color: var(--off-white);
+}
+
+.task-padding{
+    padding-right: 84px;
+}
+
+.calendar-icon{
+    position: absolute;
+    top: 8px;
+    right: 5px;
+    z-index: 0;
+}
+
+.status-option-container{
+    height: 30px;
+    width: 100px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.task-description-name-input{
+    width: 35vw;
+    height: 30px;
+    border: none;
+    outline: none;
+    padding-left: 5px;
+    background-color: var(--off-white);
+}
+
+.task-description-name-input:hover{
+    border: 1px dotted black;
+}
