@@ -222,7 +222,7 @@ const reducer = (state = {}, action) => {
     switch (action.type) {
         case ADD_WORKSPACE:
             newState = { ...state };
-            newState.workspaces =[...newState.workspaces, action.workspace];
+            newState.workspaces = [...newState.workspaces, action.workspace];
             return newState;
         case ADD_CATEGORY:
             newState = { ...state };

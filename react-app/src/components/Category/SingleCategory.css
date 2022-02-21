@@ -5,6 +5,27 @@
     justify-content: space-between;
 }
 
+.create-task-input-form{
+    margin-left: 50px;
+}
+
+.create-task-input{
+    width: 85%;
+    height: 30px;
+    margin-top: 3px;
+    padding-left: 5px;
+    caret-color: black;
+}
+
+.create-task-btn{
+    width: 50px;
+    height: 30px;
+    border: none;
+    color: white;
+    font-size: 15px;
+    background-color: var(--primary-blue);
+}
+
 .category-name-and-menu{
     display: flex;
     align-items: center;
@@ -14,9 +35,12 @@
     color: white;
     padding: 1px 4px;
     margin-right: 20px;
-    border-radius: 5px;
     border-radius: 20px;
     background-color: var(--primary-blue);
+}
+
+.cat-item-padding{
+    padding-right: 15px;
 }
 
 .category-items-container{
