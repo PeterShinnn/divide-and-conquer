@@ -1,8 +1,12 @@
 const GET_WORKSPACE = 'workspace/GET_WORKSPACE';
+
 const ADD_WORKSPACE = 'workspace/ADD_WORKSPACE';
 const ADD_CATEGORY = 'category/ADD_CATEGORY';
+const ADD_TASK = 'task/ADD_TASK';
+
 const EDIT_WORKSPACE = 'workspace/EDIT_WORKSPACE';
 const EDIT_CATEGORY = 'category/EDIT_CATEGORY';
+
 const DELETE_WORKSPACE = 'workspace/DELETE_WORKSPACE';
 const DELETE_CATEGORY = 'category/DELETE_CATEGORY';
 
@@ -18,6 +22,10 @@ const addCategory = (category) => ({
     category
 });
 
+const addTask = (task) => ({
+    type: ADD_TASK,
+    task
+})
 
 // R
 const getWorkspace = (workspaces) => ({
@@ -88,6 +96,31 @@ export const createCategory = (workspace_id, name) => async (dispatch) =>{
 
         dispatch(addCategory(category));
         return category;
+    } else if (response.status < 500) {
+        const data = await response.json();
+
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return ['An error occurred. Please try again.'];
+    }
+}
+
+export const createTask = (category_id, description) => async (dispatch) =>{
+    const response = await fetch(`/api/tasks/create`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({category_id, description})
+    });
+
+    if (response.ok) {
+        const task = await response.json();
+
+        dispatch(addTask(task));
+        return task;
     } else if (response.status < 500) {
         const data = await response.json();
 
@@ -218,8 +251,9 @@ const reducer = (state = {}, action) => {
     let catArr = [];
 
     let workspace_idx;
-    //let category_idx;
+    let category_idx;
     switch (action.type) {
+        // C
         case ADD_WORKSPACE:
             newState = { ...state };
             newState.workspaces = [...newState.workspaces, action.workspace];
@@ -236,9 +270,28 @@ const reducer = (state = {}, action) => {
                 }
             }
             return newState;
+        case ADD_TASK:
+            newState = { ...state }
+            newArr = [ ...newState.workspaces ];
+            for(let i=0; i<newArr.length; i++){
+                for(let j=0; j<newArr[i].categories.length;j++){
+                    if (newArr[i].categories[j].id === action.task.category_id){
+                        workspace_idx = i;
+                        category_idx = j;
+                        break;
+                    }
+                }
+            }
+            newArr[workspace_idx].categories[category_idx].tasks.push(action.task);
+            newState.workspaces = newArr;
+            return newState;
+
+        // R
         case GET_WORKSPACE:
             newState = { ...state, ...action.workspaces };
             return newState;
+
+        // U
         case EDIT_WORKSPACE:
             newState = { ...state };
             newArr = [...newState.workspaces];
@@ -250,6 +303,7 @@ const reducer = (state = {}, action) => {
             }
             newState.workspaces = newArr;
             return newState
+
         case EDIT_CATEGORY:
             newState = { ...state };
             newArr = [ ...newState.workspaces ];
@@ -273,10 +327,13 @@ const reducer = (state = {}, action) => {
             newState.workspaces = newArr;
             //newState.workspaces[workspace_idx].categories = catArr;
             return newState;
+
+        // D
         case DELETE_WORKSPACE:
             newState = { ...state };
             newState.workspaces = newState.workspaces.filter(w => w.id !== action.workspaceId);
             return newState;
+
         case DELETE_CATEGORY:
             newState = { ...state };
             newArr = [ ...newState.workspaces ];
@@ -289,6 +346,7 @@ const reducer = (state = {}, action) => {
 
             newState.workspaces = newArr;
             return newState;
+
         default:
             return state;
     }

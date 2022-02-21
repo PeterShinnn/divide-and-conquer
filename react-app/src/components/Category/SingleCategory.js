@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { editCategoryName, deleteCategoryById } from '../../store/workspace';
+import { editCategoryName, deleteCategoryById, createTask } from '../../store/workspace';
 import SingleTask from '../Task/SingleTask';
 import './SingleCategory.css';
 
@@ -16,6 +16,12 @@ function SingleCategory({ category }) {
 
     const handleDelete = () => {
         dispatch(deleteCategoryById(category.id))
+    }
+
+    const handleTaskAdd = (e) => {
+        e.preventDefault();
+        dispatch(createTask(category.id, newTask));
+        setNewTask("");
     }
 
     return (
@@ -44,13 +50,13 @@ function SingleCategory({ category }) {
                     <SingleTask key={task.description} task={task} />
                 ))}
             </div>
-            <form className="create-task-input-form">
+            <form className="create-task-input-form" onSubmit={(e) => handleTaskAdd(e)}>
                 <input 
                     className="create-task-input"
                     value={newTask}
                     onChange={(e) => setNewTask(e.target.value)}
                     placeholder="Create new task"/>
-                <button className="create-task-btn" type='submit'>Add</button>
+                <button disabled={!newTask.length} className="create-task-btn" type='submit'>Add</button>
             </form>
         </>
     )
