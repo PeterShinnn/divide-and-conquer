@@ -1,8 +1,13 @@
+from lib2to3.pgen2.token import OP
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField#, DateTimeField
-from wtforms.validators import DataRequired
+from wtforms import StringField, DateTimeField
+from wtforms.validators import DataRequired 
 
 class EditTaskForm(FlaskForm):
-    description = StringField('Name', validators=[DataRequired()])
+    status = StringField('status')
+    description = StringField('description', validators=[DataRequired()])
+    #deadline = DateField('deadline', validators=[Optional()])
     #category_id = IntegerField('Category_id', validators=[DataRequired()])
-    #deadline = DateTimeField('Deadline')
+
+class EditTaskDateForm(FlaskForm):
+    deadline = DateTimeField('deadline', format='%Y-%m-%dT%H:%M')

@@ -3,6 +3,7 @@
     display: flex;
     margin: 0 50px;
     align-items: center;
+    text-align: center;
     justify-content: space-between;
 }
 
@@ -24,8 +25,10 @@
     background-color: var(--off-white);
 }
 
+
 .task-padding{
-    padding-right: 84px;
+    width: 195px;
+    margin-right: 40px;
 }
 
 .calendar-icon{
@@ -53,4 +56,28 @@
 
 .task-description-name-input:hover{
     border: 1px dotted black;
+}
+
+.status-picker-container{
+    position: relative;
+}
+
+.status-picker-list{
+    z-index: 5;
+    width: 195px;
+    list-style: none;
+    position: absolute;
+    text-align: center;
+    background-color: white;
+    border: 1px solid grey;
+}
+
+.status-option{
+    margin: 2px;
+    padding: 10px;
+    color: white;
+}
+
+.status-option-none{
+    height: 41px;
 }
