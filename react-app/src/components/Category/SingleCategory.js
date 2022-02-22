@@ -56,7 +56,7 @@ function SingleCategory({ category }) {
                     value={newTask}
                     onChange={(e) => setNewTask(e.target.value)}
                     placeholder="Create new task"/>
-                <button disabled={!newTask.length} className="create-task-btn" type='submit'>Add</button>
+                <button disabled={newTask.length < 3} className="create-task-btn" type='submit'>Add</button>
             </form>
         </>
     )

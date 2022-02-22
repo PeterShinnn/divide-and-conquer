@@ -26,6 +26,17 @@
     background-color: var(--primary-blue);
 }
 
+.create-task-btn:disabled{
+    outline: none;
+    pointer-events: none;
+    background-color: white;
+    color: var(--primary-blue);
+    border: 1px solid var(--primary-blue);
+}
+
+.create-task-btn:active{
+    background-color: var(--primary-pink);
+}
 .category-name-and-menu{
     display: flex;
     align-items: center;
