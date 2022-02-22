@@ -1,7 +1,7 @@
 from flask import Blueprint, request#, jsonify
 from flask_login import login_required, current_user
 from app.models import db, Task
-from app.forms import EditTaskForm, TaskForm
+from app.forms import EditTaskForm, EditTaskDateForm, TaskForm
 
 task_routes = Blueprint('tasks', __name__)
 
@@ -43,17 +43,35 @@ def create_task():
 
 @task_routes.route('/<int:id>/edit', methods=["PATCH"])
 @login_required
-def edit_task():
+def edit_task(id):
     form = EditTaskForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-
     if form.validate_on_submit():
         task = Task.query.get(id)
         task.description = form.data['description']
+        #task.deadline = form.data['deadline']
+        task.status = form.data['status']
         
         db.session.commit()
 
         return task.to_dict()
+    return {'errors': validation_errors_to_error_messages(form.errors)}, 401
+
+@task_routes.route('/<int:id>/edit/date', methods=["PATCH"])
+@login_required
+def edit_task_date(id):
+    form = EditTaskDateForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    print(form.data)
+    if form.validate_on_submit():
+        print("heuh")
+        task = Task.query.get(id)
+        task.deadline = form.data['deadline']
+        
+        db.session.commit()
+
+        return task.to_dict()
+    print(form.errors)
     return {'errors': validation_errors_to_error_messages(form.errors)}, 401
 
 

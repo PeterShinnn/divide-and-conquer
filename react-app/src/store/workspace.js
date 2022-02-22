@@ -6,6 +6,8 @@ const ADD_TASK = 'task/ADD_TASK';
 
 const EDIT_WORKSPACE = 'workspace/EDIT_WORKSPACE';
 const EDIT_CATEGORY = 'category/EDIT_CATEGORY';
+const EDIT_TASK = 'task/EDIT_TASK';
+const EDIT_TASK_DATE = 'task/EDIT_TASK_DATE';
 
 const DELETE_WORKSPACE = 'workspace/DELETE_WORKSPACE';
 const DELETE_CATEGORY = 'category/DELETE_CATEGORY';
@@ -45,6 +47,16 @@ const updateCategoryName = (category) => ({
     category
 });
 
+const updateTask = (task) => ({
+    type: EDIT_TASK,
+    task
+})
+
+const updateTaskDate = (task) => ({
+    type: EDIT_TASK_DATE,
+    task
+})
+
 // D
 const removeWorkspace = (workspaceId) => ({
     type: DELETE_WORKSPACE,
@@ -68,7 +80,7 @@ export const createWorkspace = (name) => async (dispatch) => {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({name})
+        body: JSON.stringify({ name })
     });
 
     if (response.ok) {
@@ -87,13 +99,13 @@ export const createWorkspace = (name) => async (dispatch) => {
     }
 }
 
-export const createCategory = (workspace_id, name) => async (dispatch) =>{
+export const createCategory = (workspace_id, name) => async (dispatch) => {
     const response = await fetch(`/api/categories/create`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({workspace_id, name})
+        body: JSON.stringify({ workspace_id, name })
     })
 
     if (response.ok) {
@@ -112,13 +124,13 @@ export const createCategory = (workspace_id, name) => async (dispatch) =>{
     }
 }
 
-export const createTask = (category_id, description) => async (dispatch) =>{
+export const createTask = (category_id, description) => async (dispatch) => {
     const response = await fetch(`/api/tasks/create`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({category_id, description})
+        body: JSON.stringify({ category_id, description })
     });
 
     if (response.ok) {
@@ -164,10 +176,10 @@ export const editWorkspace = (id, name) => async (dispatch) => {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({id, name})
+        body: JSON.stringify({ id, name })
     });
 
-    if (response.ok){
+    if (response.ok) {
         const workspaces = await response.json();
         dispatch(updateWorkspaceName(workspaces));
 
@@ -189,14 +201,68 @@ export const editCategoryName = (id, name) => async (dispatch) => {
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({id, name})
+        body: JSON.stringify({ id, name })
     });
 
-    if (response.ok){
+    if (response.ok) {
         const category = await response.json();
         dispatch(updateCategoryName(category));
 
         return category;
+    } else if (response.status < 500) {
+        const data = await response.json();
+
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return ['An error occurred. Please try again.'];
+    }
+}
+
+//status, deadline, description
+export const editTask = (payload) => async (dispatch) => {
+
+    const response = await fetch(`/api/tasks/${payload.id}/edit`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            "status": payload.status,
+            "description": payload.description
+        })
+    });
+    if (response.ok) {
+        const task = await response.json();
+        dispatch(updateTask(task));
+
+        return task;
+    } else if (response.status < 500) {
+        const data = await response.json();
+
+        if (data.errors) {
+            return data.errors;
+        }
+    } else {
+        return ['An error occurred. Please try again.'];
+    }
+}
+
+export const editTaskDate = (id, deadline) => async (dispatch) => {
+    const newDate = new Date(deadline).toISOString().slice(0, 16)
+    const response = await fetch(`/api/tasks/${id}/edit/date`, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ "deadline": newDate })
+    });
+    if (response.ok) {
+        const task = await response.json();
+        dispatch(updateTaskDate(task));
+
+        return task;
     } else if (response.status < 500) {
         const data = await response.json();
 
@@ -289,10 +355,10 @@ const reducer = (state = {}, action) => {
             return newState;
         case ADD_CATEGORY:
             newState = { ...state };
-            newArr = [ ...newState.workspaces ];
-            for(let i=0; i<newArr.length; i++){
-                if (newArr[i].id === action.category.workspace_id){
-                    catArr = [ ...newArr[i].categories];
+            newArr = [...newState.workspaces];
+            for (let i = 0; i < newArr.length; i++) {
+                if (newArr[i].id === action.category.workspace_id) {
+                    catArr = [...newArr[i].categories];
                     catArr.push(action.category);
                     newArr[i].categories = catArr;
                     return newState;
@@ -301,10 +367,10 @@ const reducer = (state = {}, action) => {
             return newState;
         case ADD_TASK:
             newState = { ...state }
-            newArr = [ ...newState.workspaces ];
-            for(let i=0; i<newArr.length; i++){
-                for(let j=0; j<newArr[i].categories.length;j++){
-                    if (newArr[i].categories[j].id === action.task.category_id){
+            newArr = [...newState.workspaces];
+            for (let i = 0; i < newArr.length; i++) {
+                for (let j = 0; j < newArr[i].categories.length; j++) {
+                    if (newArr[i].categories[j].id === action.task.category_id) {
                         workspace_idx = i;
                         category_idx = j;
                         break;
@@ -324,8 +390,8 @@ const reducer = (state = {}, action) => {
         case EDIT_WORKSPACE:
             newState = { ...state };
             newArr = [...newState.workspaces];
-            for(let i=0; i<newArr.length; i++){
-                if (newArr[i].id === action.workspace.id){
+            for (let i = 0; i < newArr.length; i++) {
+                if (newArr[i].id === action.workspace.id) {
                     newArr[i] = action.workspace;
                     return newState;
                 }
@@ -335,18 +401,18 @@ const reducer = (state = {}, action) => {
 
         case EDIT_CATEGORY:
             newState = { ...state };
-            newArr = [ ...newState.workspaces ];
+            newArr = [...newState.workspaces];
 
-            for(let i=0; i<newArr.length; i++){
-                if (newArr[i].id === action.category.workspace_id){
+            for (let i = 0; i < newArr.length; i++) {
+                if (newArr[i].id === action.category.workspace_id) {
                     catArr = [...newArr[i].categories];
                     workspace_idx = i;
                     break;
                 }
             }
 
-            for(let i=0;i<catArr.length;i++){
-                if (catArr[i].id === action.category.id){
+            for (let i = 0; i < catArr.length; i++) {
+                if (catArr[i].id === action.category.id) {
                     //category_idx = i;
                     catArr[i] = action.category;
                     break
@@ -357,6 +423,51 @@ const reducer = (state = {}, action) => {
             //newState.workspaces[workspace_idx].categories = catArr;
             return newState;
 
+        case EDIT_TASK:
+            newState = { ...state };
+            newArr = [...newState.workspaces];
+
+            for (let i = 0; i < newArr.length; i++) {
+                for (let j = 0; j < newArr[i].categories.length; j++) {
+                    if (newArr[i].categories[j].id === action.task.category_id) {
+                        workspace_idx = i;
+                        category_idx = j;
+                        break;
+                    }
+                }
+            }
+
+            for (let i = 0; i < newArr[workspace_idx].categories[category_idx].tasks.length; i++) {
+                if (newArr[workspace_idx].categories[category_idx].tasks[i].id === action.task.id) {
+                    newArr[workspace_idx].categories[category_idx].tasks[i] = action.task;
+                    break;
+                }
+            }
+            newState.workspaces = newArr;
+            return newState;
+
+        case EDIT_TASK_DATE:
+            newState = { ...state };
+            newArr = [...newState.workspaces];
+
+            for (let i = 0; i < newArr.length; i++) {
+                for (let j = 0; j < newArr[i].categories.length; j++) {
+                    if (newArr[i].categories[j].id === action.task.category_id) {
+                        workspace_idx = i;
+                        category_idx = j;
+                        break;
+                    }
+                }
+            }
+
+            for (let i = 0; i < newArr[workspace_idx].categories[category_idx].tasks.length; i++) {
+                if (newArr[workspace_idx].categories[category_idx].tasks[i].id === action.task.id) {
+                    newArr[workspace_idx].categories[category_idx].tasks[i] = action.task;
+                    break;
+                }
+            }
+            newState.workspaces = newArr;
+            return newState;
         // D
         case DELETE_WORKSPACE:
             newState = { ...state };
@@ -365,11 +476,11 @@ const reducer = (state = {}, action) => {
 
         case DELETE_CATEGORY:
             newState = { ...state };
-            newArr = [ ...newState.workspaces ];
+            newArr = [...newState.workspaces];
 
-            for(let i=0; i<newArr.length; i++){
-                for(let j=0;j<newArr[i].categories.length;j++){
-                    newArr[i].categories = newArr[i].categories.filter(c => c.id !==action.category);
+            for (let i = 0; i < newArr.length; i++) {
+                for (let j = 0; j < newArr[i].categories.length; j++) {
+                    newArr[i].categories = newArr[i].categories.filter(c => c.id !== action.category);
                 }
             }
 
@@ -378,11 +489,11 @@ const reducer = (state = {}, action) => {
 
         case DELETE_TASK:
             newState = { ...state };
-            newArr = [ ...newState.workspaces ];
+            newArr = [...newState.workspaces];
 
-            for(let i=0; i<newArr.length; i++){
-                for(let j=0; j<newArr[i].categories.length;j++){
-                    if (newArr[i].categories[j].id === action.task.category_id){
+            for (let i = 0; i < newArr.length; i++) {
+                for (let j = 0; j < newArr[i].categories.length; j++) {
+                    if (newArr[i].categories[j].id === action.task.category_id) {
                         workspace_idx = i;
                         category_idx = j;
                         break;
@@ -393,7 +504,7 @@ const reducer = (state = {}, action) => {
             newArr[workspace_idx].categories[category_idx].tasks = newArr[workspace_idx].categories[category_idx].tasks.filter(task => task.id !== action.task.id)
             newState.workspaces = newArr;
             return newState;
-            
+
         default:
             return state;
     }

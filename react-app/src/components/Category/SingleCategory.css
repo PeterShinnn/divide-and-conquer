@@ -11,7 +11,7 @@
 
 .create-task-input{
     width: 85%;
-    height: 30px;
+    height: 31px;
     margin-top: 3px;
     padding-left: 5px;
     caret-color: black;
@@ -19,7 +19,7 @@
 
 .create-task-btn{
     width: 50px;
-    height: 30px;
+    height: 31px;
     border: none;
     color: white;
     font-size: 15px;
@@ -66,4 +66,31 @@
     outline: none;
     border-radius: 5px;
     border: 2px solid var(--primary-blue);
+}
+
+.task-status{
+    border: none;
+    width: 130px;
+    color: white;
+    font-size: 16px;
+    padding: 6px 0;
+    text-align: center;
+    background-color: transparent;
+}
+
+.task-{
+    padding: 5px 0;
+    background-color: lightgray;
+}
+
+.task-Done{
+    background-color: #72c793;
+}
+
+.task-In{
+    background-color: #f5cf7f;
+}
+
+.task-Stuck{
+    background-color: #e4757e;
 }

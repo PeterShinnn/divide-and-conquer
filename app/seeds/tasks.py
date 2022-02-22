@@ -6,7 +6,7 @@ def seed_tasks():
     task2 = Task(description="Add table relations",user_id=1,category_id=1)
     task3 = Task(description="Create Seed Data",user_id=1,category_id=1)
 
-    task4 = Task(description="Create Splash Spage",user_id=1,category_id=2)
+    task4 = Task(description="Create Splash page",user_id=1,category_id=2)
     task5 = Task(description="Create Logged in NavBar",user_id=1,category_id=2)
     task5 = Task(description="Create Workspace Tab",user_id=1,category_id=2)
     task5 = Task(description="Create Task Board Page",user_id=1,category_id=2)
