@@ -51,9 +51,9 @@ const NavBar = () => {
               </NavLink>
             </div>
             <ul className="left-side-nav-items">
-              <li><Link to={{ pathname: "https://www.linkedin.com/in/petershin731/" }}>Github</Link></li>
-              <li><Link to={{ pathname: "https://github.com/PeterShinnn" }}>Linkedin</Link></li>
-              <li><Link to='#'>AngelList</Link></li>
+              <li><Link to={{ pathname: "https://www.linkedin.com/in/petershin731/" }} target="_blank">Github</Link></li>
+              <li><Link to={{ pathname: "https://github.com/PeterShinnn" }} target="_blank">Linkedin</Link></li>
+              {/* <li><Link to='#'>AngelList</Link></li> */}
             </ul>
           </div>
 
