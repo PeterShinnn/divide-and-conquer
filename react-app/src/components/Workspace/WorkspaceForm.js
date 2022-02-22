@@ -10,17 +10,18 @@ const CreateWorkSpaceForm = ({onClose}) => {
     // const sessionUser = useSelector((state) => state.session.user);
 
     const [name, setName] = useState("");
-    //const [errors, setErrors] = useState([]);
+    const [errors, setErrors] = useState([]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         //dispatch(createWorkspace(name));
 
-        const data = dispatch(createWorkspace(name));
+        const data = await dispatch(createWorkspace(name));
+        
         if (data) {
-            onClose()
-        }
-        //if (data) setErrors(data);
+            if (Array.isArray(data)) setErrors(data);
+            else onClose()
+        } 
     }
 
     return (
@@ -31,9 +32,9 @@ const CreateWorkSpaceForm = ({onClose}) => {
             </div>
             <form onSubmit={e => handleSubmit(e)}>
                 <div className="workspace-error-container">
-                    {/* {errors.map((error, ind) => (
+                    {errors.map((error, ind) => (
                         <div key={ind}>{error}</div>
-                    ))} */}
+                    ))}
                 </div>
                 <div className="ws-form-input">
                     <label>Workspace name:</label>
@@ -43,7 +44,7 @@ const CreateWorkSpaceForm = ({onClose}) => {
                         className="workspace-input"
                         onChange={(e) => setName(e.target.value)}
                         placeholder="Enter workspace name here"
-                        required
+                        // required
                     />
                 </div>
                 <h2 className="fake-tag-line">Please select the categories in this board</h2>

@@ -16,7 +16,9 @@ const LoginForm = () => {
     e.preventDefault();
     
     const data = await dispatch(login(email, password));
-    if (data) setErrors(data);
+    if (data) {
+      if (Array.isArray(data)) setErrors(data);
+    }
   };
 
   const updateEmail = (e) => setEmail(e.target.value);
@@ -26,7 +28,7 @@ const LoginForm = () => {
 
   return (
     <div className="log-in-form-container">
-      <form className="log-in-form" onSubmit={onLogin}>
+      <form autoComplete="off" className="log-in-form" onSubmit={onLogin}>
         <h2 className="log-in-title">Log in to your account</h2>
         <div className="errors-container">
           {errors.map((error, ind) => (

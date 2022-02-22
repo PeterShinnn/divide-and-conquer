@@ -74,18 +74,18 @@ function WorkSpaceDetail() {
                 
                 : 
                 <div className="no-workspace-container">
-                    <h2 className="home-workspace-direction">Please Select a Workspace</h2>
+                    <h2 className="home-workspace-direction">Hi there!</h2>
                     <div className="user-search-bar">
                         <input 
                         //value={searchName}
                         onChange={(e) => handleSearch(e)}
                         className="search-bar" 
-                        placeholder="Search other user"/>
+                        placeholder="Search for other users"/>
                         
                         { userNames && (
                             <div className="search-result-container">
                             {userNames.map(u => (
-                                <div className="search-result">{u.username}</div>
+                                <div key={u.username} className="search-result">{u.username}</div>
                             ))}
                             </div>
                         )}
