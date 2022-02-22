@@ -44,3 +44,32 @@
 .add-category-btn:active{
     background-color: var(--primary-pink);
 }
+
+.no-workspace-container{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+    margin-top: 20vh;
+}
+
+.home-workspace-direction{
+    font-size: 50px;
+}
+
+.user-search-bar{
+    margin: 30px 0;
+}
+
+.search-bar{
+    width: 25vw;
+    height: 5vh;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px solid gray;
+}
+
+.search-bar:focus{
+    outline: none;
+    border: 2px solid var(--primary-blue);
+}

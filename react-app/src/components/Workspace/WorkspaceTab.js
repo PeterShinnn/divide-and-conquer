@@ -33,7 +33,7 @@ function WorkspaceTab() {
                         <i className="fa-solid fa-briefcase briefcase-icon"></i>
                         <p>My Workspace</p>
                     </div>
-                    <div onClick={() => setShowModal(true)} className="add-workspace-btn">+ Add New Board</div>
+                    <div onClick={() => setShowModal(true)} className="add-workspace-btn">+ Add New Workspace</div>
                     {showModal && (
                         <Modal onClose={() => setShowModal(false)}>
                             <CreateWorkSpaceForm onClose={() => setShowModal(false)}/>

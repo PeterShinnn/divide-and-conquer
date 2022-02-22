@@ -3,15 +3,19 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'; 
 
 import { createCategory, editWorkspace } from "../../store/workspace";
-import './WorkSpaceDetail.css';
 import SingleCategory from "../Category/SingleCategory";
+import CreateWorkSpaceForm from "./WorkspaceForm";
+import { Modal } from "../../context/Modal";
+import './WorkSpaceDetail.css';
 
 function WorkSpaceDetail() {
     const dispatch = useDispatch();
     const { workspaceId } = useParams();
     const workspaces = useSelector(state => state.workspaces)
-    
+    const sessionUser = useSelector(state => state.session.user);
+
     const [wName, setWName] = useState("");
+    const [showModal, setShowModal] = useState(false);
 
     const workspace = workspaces?.workspaces?.filter( w => w.id === parseInt(workspaceId) )
 
@@ -56,8 +60,17 @@ function WorkSpaceDetail() {
                 </div> 
                 
                 : 
-                <div>
-                    <h2>Please Select a Workspace</h2>
+                <div className="no-workspace-container">
+                    <h2 className="home-workspace-direction">Please Select a Workspace</h2>
+                    <div className="user-search-bar">
+                        <input className="search-bar" placeholder="Search other user"/>
+                    </div>
+                    <button onClick={() => setShowModal(true)} className="create-workspace-btn">Create new workspace</button>
+                    {showModal && (
+                        <Modal onClose={() => setShowModal(false)}>
+                            <CreateWorkSpaceForm onClose={() => setShowModal(false)}/>
+                        </Modal>
+                    )}
                 </div>
             }
 
