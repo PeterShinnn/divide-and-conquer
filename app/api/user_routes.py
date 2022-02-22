@@ -22,5 +22,5 @@ def user_by_id(id):
 @login_required
 def search_user(search_query):
     print(search_query)
-    users = User.query.filter(User.username.like(f'%{search_query.lower()}%')).limit(5)
+    users = User.query.filter(User.username.like(f'{search_query.lower()}%')).limit(5)
     return {'users': [user.to_dict() for user in users]}

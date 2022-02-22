@@ -11,10 +11,11 @@ import './WorkSpaceDetail.css';
 function WorkSpaceDetail() {
     const dispatch = useDispatch();
     const { workspaceId } = useParams();
-    const workspaces = useSelector(state => state.workspaces)
+    const workspaces = useSelector(state => state.workspaces);
     const sessionUser = useSelector(state => state.session.user);
 
     const [wName, setWName] = useState("");
+    const [userNames, setUserName] = useState([]);
     const [showModal, setShowModal] = useState(false);
 
     const workspace = workspaces?.workspaces?.filter( w => w.id === parseInt(workspaceId) )
@@ -32,6 +33,20 @@ function WorkSpaceDetail() {
         dispatch(createCategory(id, "New Category"))
     }
 
+    const handleSearch = async (e) => {
+        if (e.target.value === "") {
+            setUserName([]);
+            return;
+        }
+
+        const response = await fetch(`/api/users/${e.target.value}`);
+        
+        if (response.ok){
+            const users = await response.json();
+            setUserName(users.users);
+        }
+    }
+
     return (
         <>
             {workspaceId ?
@@ -45,9 +60,7 @@ function WorkSpaceDetail() {
                                 onChange={(e) => setWName(e.target.value)} />
                         </form>
                         <div className="right-side-detail-header">
-                            <div className="">Invite</div>
-                            <div className="">More info</div>
-                            <div className="">...</div>
+                            <div className="user-profile-tab">current user: {sessionUser?.username}</div>
                         </div>
                     </div>
                     <div>
@@ -63,7 +76,19 @@ function WorkSpaceDetail() {
                 <div className="no-workspace-container">
                     <h2 className="home-workspace-direction">Please Select a Workspace</h2>
                     <div className="user-search-bar">
-                        <input className="search-bar" placeholder="Search other user"/>
+                        <input 
+                        //value={searchName}
+                        onChange={(e) => handleSearch(e)}
+                        className="search-bar" 
+                        placeholder="Search other user"/>
+                        
+                        { userNames && (
+                            <div className="search-result-container">
+                            {userNames.map(u => (
+                                <div className="search-result">{u.username}</div>
+                            ))}
+                            </div>
+                        )}
                     </div>
                     <button onClick={() => setShowModal(true)} className="create-workspace-btn">Create new workspace</button>
                     {showModal && (
