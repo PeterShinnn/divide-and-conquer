@@ -11,10 +11,11 @@ import './WorkSpaceDetail.css';
 function WorkSpaceDetail() {
     const dispatch = useDispatch();
     const { workspaceId } = useParams();
-    const workspaces = useSelector(state => state.workspaces)
-    const sessionUser = useSelector(state => state.session.user);
+    const workspaces = useSelector(state => state.workspaces);
 
     const [wName, setWName] = useState("");
+    const [userNames, setUserName] = useState([]);
+    //const [searchName, setSearchName] = useState("");
     const [showModal, setShowModal] = useState(false);
 
     const workspace = workspaces?.workspaces?.filter( w => w.id === parseInt(workspaceId) )
@@ -30,6 +31,16 @@ function WorkSpaceDetail() {
 
     const createNewCategory = (id) => {
         dispatch(createCategory(id, "New Category"))
+    }
+
+    const handleSearch = async (e) => {
+        console.log(e.target.value)
+        if (e.target.value === "") return
+        const response = await fetch(`/api/users/${e.target.value}`);
+        if (response.ok){
+            const users = await response.json();
+            setUserName(users.users);
+        }
     }
 
     return (
@@ -63,7 +74,19 @@ function WorkSpaceDetail() {
                 <div className="no-workspace-container">
                     <h2 className="home-workspace-direction">Please Select a Workspace</h2>
                     <div className="user-search-bar">
-                        <input className="search-bar" placeholder="Search other user"/>
+                        <input 
+                        //value={searchName}
+                        onChange={(e) => handleSearch(e)}
+                        className="search-bar" 
+                        placeholder="Search other user"/>
+                        
+                        { userNames && (
+                            <div className="search-result-container">
+                            {userNames.map(u => (
+                                <div className="search-result">{u.username}</div>
+                            ))}
+                            </div>
+                        )}
                     </div>
                     <button onClick={() => setShowModal(true)} className="create-workspace-btn">Create new workspace</button>
                     {showModal && (

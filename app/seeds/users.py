@@ -13,6 +13,9 @@ def seed_users():
         full_name='Daniel L', username='icarium', email='daneil@aa.io', password='password')
     denise = User(
         full_name='Denise L', username='dahneez', email='denise@aa.io', password='password')
+    fiona = User(
+        full_name='Fiona C', username='fionAHH', email='fionah@aa.io', password='password')
+    
     peter = User(
         full_name='Peter S', username='petur', email='peter@aa.io', password='password')
     thomas = User(
@@ -30,6 +33,7 @@ def seed_users():
     db.session.add(christy)
     db.session.add(daniel)
     db.session.add(denise)
+    db.session.add(fiona)
     db.session.add(peter)
     db.session.add(thomas)
 
