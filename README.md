@@ -63,9 +63,6 @@
   FLASK_ENV=development
   SECRET_KEY=<your strong secret key>
   DATABASE_URL=postgresql://<username>:<password>@<server>/<database>
-  S3_BUCKET=<name of your s3 bucket>
-  S3_KEY=<your s3 user access-key>
-  S3_SECRET=<your s3 user secret-key>
   ```
 
 4. Setup your username and database based on what you setup in your .env
