@@ -20,13 +20,13 @@ def seed_users():
     thomas = User(
         full_name='Thomas T', username='sirThomas', email='sirthomas@aa.io', password='password')
     yura = User(
-        full_name='', username='', email='@aa.io', password='password')
+        full_name='Yu Ra K', username='yuRa', email='yura@aa.io', password='password')
     jenn = User(
-        full_name='', username='', email='@aa.io', password='password')
+        full_name='Jennifer D', username='jenn', email='jennifer@aa.io', password='password')
     justin = User(
-        full_name='', username='', email='@aa.io', password='password')
+        full_name='Justin S', username='jstnswny', email='justin@aa.io', password='password')
     tanner = User(
-        full_name='', username='', email='@aa.io', password='password')
+        full_name='Tanner S', username='tannertime', email='tanner@aa.io', password='password')
     
 
     seed1 = User(full_name='Demo1', username='jiFizzle', email='demo2@aa.io', password='password')
@@ -35,6 +35,10 @@ def seed_users():
     seed4 = User(full_name='Demo4', username='laVergneBakery', email='demo5@aa.io', password='password')
     seed5 = User(full_name='Demo5', username='durrGetEMMAWEI', email='demo6@aa.io', password='password')
     
+    seed6 = User(full_name='Demo6',username='getOverKnit', email='seed6@aa.io', password='password')
+    seed7 = User(full_name='Demo7',username='jENuinely', email='seed7@aa.io', password='password')
+    seed8 = User(full_name='Demo8',username='justInTime', email='seed8@aa.io', password='password')
+    seed9 = User(full_name='Demo9',username='shawShankRedemption', email='seed9@aa.io', password='password')
     
     db.session.add(demo)
     db.session.add(cameron)
@@ -44,12 +48,20 @@ def seed_users():
     db.session.add(fiona)
     db.session.add(peter)
     db.session.add(thomas)
+    db.session.add(yura)
+    db.session.add(jenn)
+    db.session.add(justin)
+    db.session.add(tanner)
 
     db.session.add(seed1)
     db.session.add(seed2)
     db.session.add(seed3)
     db.session.add(seed4)
     db.session.add(seed5)
+    db.session.add(seed6)
+    db.session.add(seed7)
+    db.session.add(seed8)
+    db.session.add(seed9)
 
     db.session.commit()
 
