@@ -15,12 +15,20 @@ def seed_users():
         full_name='Denise L', username='dahneez', email='denise@aa.io', password='password')
     fiona = User(
         full_name='Fiona C', username='fionAHH', email='fionah@aa.io', password='password')
-    
     peter = User(
         full_name='Peter S', username='petur', email='peter@aa.io', password='password')
     thomas = User(
         full_name='Thomas T', username='sirThomas', email='sirthomas@aa.io', password='password')
+    yura = User(
+        full_name='', username='', email='@aa.io', password='password')
+    jenn = User(
+        full_name='', username='', email='@aa.io', password='password')
+    justin = User(
+        full_name='', username='', email='@aa.io', password='password')
+    tanner = User(
+        full_name='', username='', email='@aa.io', password='password')
     
+
     seed1 = User(full_name='Demo1', username='jiFizzle', email='demo2@aa.io', password='password')
     seed2 = User(full_name='Demo2', username='trixR4Chrithy', email='demo3@aa.io', password='password')
     seed3 = User(full_name='Demo3', username='dj-Hurricane', email='demo4@aa.io', password='password')

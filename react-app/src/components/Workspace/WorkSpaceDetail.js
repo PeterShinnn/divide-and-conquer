@@ -85,7 +85,7 @@ function WorkSpaceDetail() {
                         { userNames && (
                             <div className="search-result-container">
                             {userNames.map(u => (
-                                <div className="search-result">{u.username}</div>
+                                <div key={u.username} className="search-result">{u.username}</div>
                             ))}
                             </div>
                         )}
