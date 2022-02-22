@@ -12,10 +12,10 @@ function WorkSpaceDetail() {
     const dispatch = useDispatch();
     const { workspaceId } = useParams();
     const workspaces = useSelector(state => state.workspaces);
+    const sessionUser = useSelector(state => state.session.user);
 
     const [wName, setWName] = useState("");
     const [userNames, setUserName] = useState([]);
-    //const [searchName, setSearchName] = useState("");
     const [showModal, setShowModal] = useState(false);
 
     const workspace = workspaces?.workspaces?.filter( w => w.id === parseInt(workspaceId) )
@@ -34,9 +34,13 @@ function WorkSpaceDetail() {
     }
 
     const handleSearch = async (e) => {
-        console.log(e.target.value)
-        if (e.target.value === "") return
+        if (e.target.value === "") {
+            setUserName([]);
+            return;
+        }
+
         const response = await fetch(`/api/users/${e.target.value}`);
+        
         if (response.ok){
             const users = await response.json();
             setUserName(users.users);
@@ -56,9 +60,7 @@ function WorkSpaceDetail() {
                                 onChange={(e) => setWName(e.target.value)} />
                         </form>
                         <div className="right-side-detail-header">
-                            <div className="">Invite</div>
-                            <div className="">More info</div>
-                            <div className="">...</div>
+                            <div className="user-profile-tab">current user: {sessionUser?.username}</div>
                         </div>
                     </div>
                     <div>

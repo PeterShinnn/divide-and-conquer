@@ -65,11 +65,34 @@
     width: 25vw;
     height: 5vh;
     text-align: center;
-    border-radius: 10px;
     border: 1px solid gray;
 }
 
 .search-bar:focus{
     outline: none;
     border: 2px solid var(--primary-blue);
+}
+
+.search-result{
+    padding: 8px;
+    outline: none;
+    text-align: center;
+    border: 1px solid gray;
+}
+
+.search-result:hover{
+    outline: none;
+    cursor: pointer;
+    border: 2px solid var(--primary-pink);
+}
+
+.user-profile-tab{
+    padding: 12px;
+    border: 1px solid gray;
+}
+
+.user-profile-tab:hover{
+    outline: none;
+    cursor: pointer;
+    border: 1px solid var(--primary-pink);
 }

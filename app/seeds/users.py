@@ -21,11 +21,11 @@ def seed_users():
     thomas = User(
         full_name='Thomas T', username='sirThomas', email='sirthomas@aa.io', password='password')
     
-    seed1 = User(full_name='Demo1', username='demo2', email='demo2@aa.io', password='password')
-    seed2 = User(full_name='Demo2', username='demo3', email='demo3@aa.io', password='password')
-    seed3 = User(full_name='Demo3', username='demo4', email='demo4@aa.io', password='password')
-    seed4 = User(full_name='Demo4', username='demo5', email='demo5@aa.io', password='password')
-    seed5 = User(full_name='Demo5', username='demo6', email='demo6@aa.io', password='password')
+    seed1 = User(full_name='Demo1', username='jiFizzle', email='demo2@aa.io', password='password')
+    seed2 = User(full_name='Demo2', username='trixR4Chrithy', email='demo3@aa.io', password='password')
+    seed3 = User(full_name='Demo3', username='dj-Hurricane', email='demo4@aa.io', password='password')
+    seed4 = User(full_name='Demo4', username='laVergneBakery', email='demo5@aa.io', password='password')
+    seed5 = User(full_name='Demo5', username='durrGetEMMAWEI', email='demo6@aa.io', password='password')
     
     
     db.session.add(demo)
