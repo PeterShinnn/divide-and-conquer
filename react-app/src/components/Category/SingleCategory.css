@@ -118,6 +118,10 @@
     background-color: #e4757e;
 }
 
+.task-Stuck:hover{
+    background-color: #e03745;
+}
+
 .garbage-cat-icon:hover{
     color: red;
 }
