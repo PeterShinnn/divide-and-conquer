@@ -17,6 +17,7 @@
 }
 
 .demo-login-btn:hover {
+    cursor: pointer;
     background-color: lightgray;
 }
 

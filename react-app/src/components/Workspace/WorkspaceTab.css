@@ -94,6 +94,7 @@ hr{
 
 .delete-icon:hover{
     color: red;
+    cursor: pointer;
     background-color: silver;
 }
 

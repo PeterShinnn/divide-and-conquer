@@ -84,4 +84,5 @@
 
 .task-trash-icon:hover{
     color: red;
+    cursor: pointer;
 }
