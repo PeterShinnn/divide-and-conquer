@@ -16,7 +16,7 @@ function SplashPage() {
                     <button onClick={() => history.push('/sign-up')}className="sign-up-btn">Get Started</button>
                 </div>
                 <div className="snowflakes" aria-hidden="true">
-                {firefly.map( (e) => <div key={e} className="snowflake">✧</div>)}
+                {firefly.map( (e) => <div key={e} className="snowflake">★</div>)}
                 </div>
                 
             </div>
