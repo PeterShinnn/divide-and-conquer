@@ -81,3 +81,7 @@
 .status-option-none{
     height: 41px;
 }
+
+.task-trash-icon:hover{
+    color: red;
+}

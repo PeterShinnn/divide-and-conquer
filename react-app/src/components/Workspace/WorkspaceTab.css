@@ -78,9 +78,13 @@ hr{
     text-decoration: none;
 }
 
-.workspace-detail-container:hover{
+.workspace-detail a:hover{
     background-color: gainsboro;
 }
+
+/* .workspace-detail-container:hover{
+    background-color: gainsboro;
+} */
 
 .delete-icon{
     padding: 2px;
@@ -89,7 +93,8 @@ hr{
 }
 
 .delete-icon:hover{
-    background-color: 	silver;
+    color: red;
+    background-color: silver;
 }
 
 .delete-icon:active{
