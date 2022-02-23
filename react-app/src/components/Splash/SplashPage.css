@@ -64,9 +64,10 @@
 }
 
 .sign-up-btn:hover {
+    cursor: pointer;
+    color: lightgray;
     border-color: var(--darker-purple);
     background-color: var(--darker-purple);
-    color: lightgray;
 }
 
 .sign-up-btn:active {

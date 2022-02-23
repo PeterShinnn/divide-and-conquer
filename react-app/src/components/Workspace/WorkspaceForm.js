@@ -52,7 +52,7 @@ const CreateWorkSpaceForm = ({onClose}) => {
                         // required
                     />
                 </div>
-                <h2 className="fake-tag-line">Please select the categories in this board</h2>
+                {/* <h2 className="fake-tag-line">Please select the categories in this board</h2>
                 <div className="fake-category">
                     <div className="fake-category-div">
                         <input type="checkbox" id="CreateDesign" />
@@ -90,7 +90,7 @@ const CreateWorkSpaceForm = ({onClose}) => {
                         <input type="checkbox" id="Operations" />
                         <label>Operations</label>
                     </div>
-                </div>
+                </div> */}
                 <button type="submit" className="create-workspace-btn">Create Workspace</button>
             </form>
         </>

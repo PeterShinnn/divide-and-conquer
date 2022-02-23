@@ -81,7 +81,8 @@
 
 .task-status{
     border: none;
-    width: 130px;
+    width: 100%;
+    height: 30px;
     color: white;
     font-size: 16px;
     padding: 6px 0;
@@ -90,18 +91,38 @@
 }
 
 .task-{
-    padding: 5px 0;
     background-color: lightgray;
+}
+
+.task-:hover{
+    background-color: darkgray;
 }
 
 .task-Done{
     background-color: #72c793;
 }
 
+.task-Done:hover{
+    background-color: #21c760;
+}
+
 .task-In{
     background-color: #f5cf7f;
 }
 
+.task-In:hover{
+    background-color: #f5bf49;
+}
+
 .task-Stuck{
     background-color: #e4757e;
+}
+
+.task-Stuck:hover{
+    background-color: #e03745;
+}
+
+.garbage-cat-icon:hover{
+    color: red;
+    cursor: pointer;
 }

@@ -73,6 +73,7 @@
 }
 
 .create-workspace-btn:hover{
+    cursor: pointer;
     background-color: var(--darker-purple);
 }
 

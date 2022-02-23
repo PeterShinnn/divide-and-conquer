@@ -10,11 +10,11 @@ def seed_users():
     christy = User(
         full_name='Christy C', username='chrithy', email='christy@aa.io', password='password')
     daniel = User(
-        full_name='Daniel L', username='icarium', email='daneil@aa.io', password='password')
+        full_name='Daniel L', username='icarium', email='daniel@aa.io', password='password')
     denise = User(
         full_name='Denise L', username='dahneez', email='denise@aa.io', password='password')
     fiona = User(
-        full_name='Fiona C', username='fionAHH', email='fionah@aa.io', password='password')
+        full_name='Fiona C', username='fionAHH', email='fiona@aa.io', password='password')
     peter = User(
         full_name='Peter S', username='petur', email='peter@aa.io', password='password')
     thomas = User(
@@ -29,16 +29,16 @@ def seed_users():
         full_name='Tanner S', username='tannertime', email='tanner@aa.io', password='password')
     
 
-    seed1 = User(full_name='Demo1', username='jiFizzle', email='demo2@aa.io', password='password')
-    seed2 = User(full_name='Demo2', username='trixR4Chrithy', email='demo3@aa.io', password='password')
-    seed3 = User(full_name='Demo3', username='dj-Hurricane', email='demo4@aa.io', password='password')
-    seed4 = User(full_name='Demo4', username='laVergneBakery', email='demo5@aa.io', password='password')
-    seed5 = User(full_name='Demo5', username='durrGetEMMAWEI', email='demo6@aa.io', password='password')
+    seed1 = User(full_name='FionAHH', username='jiFizzle', email='fiona2@aa.io', password='password')
+    seed2 = User(full_name='Chrithy', username='trixR4Chrithy', email='christy2@aa.io', password='password')
+    seed3 = User(full_name='Cameroff', username='dj-Hurricane', email='cameron2@aa.io', password='password')
+    seed4 = User(full_name='Icarium', username='laVergneBakery', email='daniel2@aa.io', password='password')
+    seed5 = User(full_name='DAHneez', username='durrGetEMMAWEI', email='denise2@aa.io', password='password')
     
-    seed6 = User(full_name='Demo6',username='getOverKnit', email='seed6@aa.io', password='password')
-    seed7 = User(full_name='Demo7',username='jENuinely', email='seed7@aa.io', password='password')
-    seed8 = User(full_name='Demo8',username='justInTime', email='seed8@aa.io', password='password')
-    seed9 = User(full_name='Demo9',username='shawShankRedemption', email='seed9@aa.io', password='password')
+    seed6 = User(full_name='YuRa',username='getOverKnit', email='yura2@aa.io', password='password')
+    seed7 = User(full_name='Jenn',username='jENuinely', email='jennifer2@aa.io', password='password')
+    seed8 = User(full_name='Jstnswny',username='justInTime', email='justin2@aa.io', password='password')
+    seed9 = User(full_name='TannerTime',username='shawShankRedemption', email='tanner2@aa.io', password='password')
     
     db.session.add(demo)
     db.session.add(cameron)

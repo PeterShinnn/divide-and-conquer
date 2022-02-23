@@ -22,6 +22,7 @@ function WorkSpaceDetail() {
 
     useEffect(() => {
         if (workspace) setWName(workspace[0]?.name)
+        setUserName([]);
     }, [dispatch, workspaceId])
 
 
@@ -74,7 +75,7 @@ function WorkSpaceDetail() {
                                 className="form-edit-input"
                                 onChange={(e) => changeName(e)} />
                         </form>
-                        <p>**Please Press Enter after changing name**</p>
+                        <p>**Please Press Enter after changing task name**</p>
                         <div className="right-side-detail-header">
                             <div className="user-profile-tab">current user: {sessionUser?.username}</div>
                         </div>
