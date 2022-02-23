@@ -95,11 +95,18 @@
     npm start
     ```
 
+## Splash Page
 [![1.png](https://i.postimg.cc/x16VYN4t/1.png)](https://postimg.cc/JsH250mk)
+
+## Login
 [![2.png](https://i.postimg.cc/8C38fQDv/2.png)](https://postimg.cc/GBkg6f43)
 [![2-5.png](https://i.postimg.cc/3wW5wJM7/2-5.png)](https://postimg.cc/GB0S7RhS)
+
+## Sign Up
 [![3.png](https://i.postimg.cc/zBWQLyxm/3.png)](https://postimg.cc/R6SdyZrG)
 [![4.png](https://i.postimg.cc/90hnyckD/4.png)](https://postimg.cc/PpSyjnTH)
+
+## Workspace 
 [![5.png](https://i.postimg.cc/gjV17xhy/5.png)](https://postimg.cc/gL0MXkNr)
 [![6.png](https://i.postimg.cc/tCbKxz0B/6.png)](https://postimg.cc/fkHq4mRd)
 [![7.png](https://i.postimg.cc/3JZPCDYY/7.png)](https://postimg.cc/7ffsqh5W)
