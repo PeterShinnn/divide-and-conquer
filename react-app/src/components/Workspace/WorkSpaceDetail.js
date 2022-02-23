@@ -28,9 +28,9 @@ function WorkSpaceDetail() {
     const doNothing = (e) => {
         e.preventDefault();
 
-        if (wName === "") {
-            setWName("No name");
-            dispatch(editWorkspace(workspaceId, "No name"));
+        if (wName.length < 3) {
+            setWName("Name must be 3 or more characters");
+            dispatch(editWorkspace(workspaceId, "Name must be 3 or more characters"));
         }
     }
 
