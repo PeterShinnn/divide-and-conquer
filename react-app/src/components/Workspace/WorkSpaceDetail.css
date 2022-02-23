@@ -19,8 +19,8 @@
 }
 
 .form-edit-input{
-    width: 15vw;
     height: 5vh;
+    width: 21vw;
     font-size: 16px;
     padding-left: 10px;
     caret-color: black;

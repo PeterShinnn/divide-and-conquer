@@ -17,13 +17,33 @@ function SingleTask({ task }) {
     const handleEditName = (e) => {
         e.preventDefault();
 
-        const payload = {
-            'id': task.id,
-            'description': taskDescription,
-            'status': taskStatus
+        if (taskDescription === "") {
+            const payload = {
+                'id': task.id,
+                'description': "no task name",
+                'status': taskStatus
+            }
+            dispatch(editTask(payload));
+        } else {
+            const payload = {
+                'id': task.id,
+                'description': taskDescription,
+                'status': taskStatus
+            }
+            dispatch(editTask(payload));
         }
-        dispatch(editTask(payload));
     }
+
+    // const handleEditName = (e) => {
+    //     setTaskDescription(e.target.value)
+    //     const payload = {
+    //         'id': task.id,
+    //         'description': e.target.value,
+    //         'status': taskStatus
+    //     }
+    //     dispatch(editTask(payload));
+    //     //setTimeout(() => { dispatch(editTask(payload)) }, 5000);
+    // }
 
     const handleDateChange = (date) => {
         setStartDate(date);
@@ -50,8 +70,9 @@ function SingleTask({ task }) {
             <div className="single-task-information-container">
                 <form onSubmit={(e) => handleEditName(e)}>
                     <input
-                        className="task-description-name-input"
+                        type="text"
                         value={taskDescription}
+                        className="task-description-name-input"
                         onChange={(e) => setTaskDescription(e.target.value)} />
                 </form>
                 <div className="single-task-information">
@@ -68,15 +89,15 @@ function SingleTask({ task }) {
                     </div>
                     <div className={`task-info task-padding task-${taskStatus}`}>
                         <div className="status-picker-container">
-                            <button onClick={() => showStatusMenu ? setStatusMenu(false):setStatusMenu(true)} className={`task-status`}>{taskStatus}</button>
-                            {showStatusMenu ? 
-                            <ul className="status-picker-list">
-                                <li className="task- status-option status-option-none" value={""} onClick={(e) => handleTaskStatus(e)}></li>
-                                <li className="task-Stuck status-option" value={"Stuck"} onClick={(e) => handleTaskStatus(e)}>Stuck</li>
-                                <li className="task-In status-option" value={"In Progress"} onClick={(e) => handleTaskStatus(e)}>In Progress</li>
-                                <li className="task-Done status-option" value={"Done"} onClick={(e) => handleTaskStatus(e)}>Done</li>
-                            </ul> 
-                            : <></>
+                            <button onClick={() => showStatusMenu ? setStatusMenu(false) : setStatusMenu(true)} className={`task-status`}>{taskStatus}</button>
+                            {showStatusMenu ?
+                                <ul className="status-picker-list">
+                                    <li className="task- status-option status-option-none" value={""} onClick={(e) => handleTaskStatus(e)}></li>
+                                    <li className="task-Stuck status-option" value={"Stuck"} onClick={(e) => handleTaskStatus(e)}>Stuck</li>
+                                    <li className="task-In status-option" value={"In Progress"} onClick={(e) => handleTaskStatus(e)}>In Progress</li>
+                                    <li className="task-Done status-option" value={"Done"} onClick={(e) => handleTaskStatus(e)}>Done</li>
+                                </ul>
+                                : <></>
                             }
                         </div>
                     </div>

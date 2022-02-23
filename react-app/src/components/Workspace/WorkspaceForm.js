@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux'; //, useSelector 
+import { useHistory } from "react-router-dom";
 
 import { createWorkspace } from '../../store/workspace';
 import './WorkspaceForm.css';
@@ -7,6 +8,7 @@ import './WorkspaceForm.css';
 const CreateWorkSpaceForm = ({onClose}) => {
 
     const dispatch = useDispatch();
+    const history = useHistory();
     // const sessionUser = useSelector((state) => state.session.user);
 
     const [name, setName] = useState("");
@@ -20,7 +22,10 @@ const CreateWorkSpaceForm = ({onClose}) => {
         
         if (data) {
             if (Array.isArray(data)) setErrors(data);
-            else onClose()
+            else {
+                onClose();
+                history.push(`/taskboard/${data.id}`)
+            }
         } 
     }
 
