@@ -6,6 +6,8 @@ hr{
 
 .entire-workspace-container{
     background-color: var(--off-white);
+    width: 16vw;
+    max-width: 17vw;
 }
 
 .workspace-container{
@@ -63,6 +65,12 @@ hr{
     border-radius: 5px;
     border: 1px solid transparent;
     justify-content: space-between;
+}
+
+.workspace-detail{
+    max-width: 30vw;
+    overflow: auto;
+    height: auto;
 }
 
 .workspace-detail a{

@@ -393,7 +393,7 @@ const reducer = (state = {}, action) => {
             for (let i = 0; i < newArr.length; i++) {
                 if (newArr[i].id === action.workspace.id) {
                     newArr[i] = action.workspace;
-                    return newState;
+                    break;
                 }
             }
             newState.workspaces = newArr;

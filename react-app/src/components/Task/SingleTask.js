@@ -14,6 +14,7 @@ function SingleTask({ task }) {
     const [taskDescription, setTaskDescription] = useState(task.description)
     const [startDate, setStartDate] = useState(task.deadline ? new Date(task.deadline) : null);
 
+    
     const handleEditName = (e) => {
         e.preventDefault();
 

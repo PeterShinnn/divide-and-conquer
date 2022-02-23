@@ -33,7 +33,7 @@ def get_workspace_by_id(id):
 @workspace_routes.route('/<int:id>/edit', methods=['PATCH'])
 @login_required
 def update_workspace(id):
-    form = WorkSpaceForm()
+    form = EditWorkSpaceForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     
     if form.validate_on_submit():
@@ -49,7 +49,7 @@ def update_workspace(id):
 @workspace_routes.route('/create', methods=['POST'])
 @login_required
 def create_workspace():
-    form = EditWorkSpaceForm()
+    form = WorkSpaceForm()
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
