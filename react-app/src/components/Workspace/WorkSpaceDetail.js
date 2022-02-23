@@ -30,17 +30,17 @@ function WorkSpaceDetail() {
     }
 
     const changeName = (e) => {
-        if (e.target.value.length > 2) {
+        // if (e.target.value.length > 2) {
             setWName(e.target.value);
             dispatch(editWorkspace(workspaceId, e.target.value));
-        } else if (e.target.value.length === 0) {
-            setWName("No Workspace Name");
-            dispatch(editWorkspace(workspaceId, "No Workspace Name"));
-        }
+        // } else if (e.target.value.length === 0) {
+        //     setWName("No Workspace Name");
+        //     dispatch(editWorkspace(workspaceId, "No Workspace Name"));
+        // }
     }
 
     const createNewCategory = (id) => {
-        dispatch(createCategory(id, "New Category"))
+        dispatch(createCategory(id, "New Category")).then(()=>console.log(workspaces))
     }
 
     const handleSearch = async (e) => {
@@ -69,6 +69,7 @@ function WorkSpaceDetail() {
                                 className="form-edit-input"
                                 onChange={(e) => changeName(e)} />
                         </form>
+                        <p>**Please Press Enter after changing name**</p>
                         <div className="right-side-detail-header">
                             <div className="user-profile-tab">current user: {sessionUser?.username}</div>
                         </div>

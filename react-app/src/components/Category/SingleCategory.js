@@ -13,7 +13,6 @@ function SingleCategory({ category }) {
         e.preventDefault();
     }
 
-
     const handleChange = (e) => {
         setCategoryName(e.target.value)
         dispatch(editCategoryName(category.id, e.target.value));

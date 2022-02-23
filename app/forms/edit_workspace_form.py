@@ -7,4 +7,4 @@ def my_length_check(form, field):
         raise ValidationError('Name must be between 3-50 characters')
 
 class EditWorkSpaceForm(FlaskForm):
-    name = StringField('name', validators=[DataRequired(), my_length_check])
+    name = StringField('name', validators=[DataRequired()])
