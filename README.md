@@ -94,3 +94,15 @@
     ```
     npm start
     ```
+
+[![1.png](https://i.postimg.cc/x16VYN4t/1.png)](https://postimg.cc/JsH250mk)
+[![2.png](https://i.postimg.cc/8C38fQDv/2.png)](https://postimg.cc/GBkg6f43)
+[![2-5.png](https://i.postimg.cc/3wW5wJM7/2-5.png)](https://postimg.cc/GB0S7RhS)
+[![3.png](https://i.postimg.cc/zBWQLyxm/3.png)](https://postimg.cc/R6SdyZrG)
+[![4.png](https://i.postimg.cc/90hnyckD/4.png)](https://postimg.cc/PpSyjnTH)
+[![5.png](https://i.postimg.cc/gjV17xhy/5.png)](https://postimg.cc/gL0MXkNr)
+[![6.png](https://i.postimg.cc/tCbKxz0B/6.png)](https://postimg.cc/fkHq4mRd)
+[![7.png](https://i.postimg.cc/3JZPCDYY/7.png)](https://postimg.cc/7ffsqh5W)
+[![8.png](https://i.postimg.cc/t4C8rC4P/8.png)](https://postimg.cc/9rKx02TF)
+[![9.png](https://i.postimg.cc/1z82QC63/9.png)](https://postimg.cc/kVdfNyf0)
+[![10.png](https://i.postimg.cc/bv4MNxHH/10.png)](https://postimg.cc/5HqpsFr6)
