@@ -9,9 +9,14 @@ function SingleCategory({ category }) {
     const [categoryName, setCategoryName] = useState(category.name)
     const [newTask, setNewTask] = useState("");
 
-    const handleChange = (e) => {
+    const doNothing = (e) => {
         e.preventDefault();
-        dispatch(editCategoryName(category.id, categoryName));
+    }
+
+
+    const handleChange = (e) => {
+        setCategoryName(e.target.value)
+        dispatch(editCategoryName(category.id, e.target.value));
     }
 
     const handleDelete = () => {
@@ -31,12 +36,12 @@ function SingleCategory({ category }) {
                     <div className="dropdown-icon-container">
                         <i className="fa-solid fa-caret-down drop-down-icon"></i>
                     </div>
-                    <form className="category-name-form" onSubmit={(e) => handleChange(e)}>
+                    <form className="category-name-form" onSubmit={(e) => doNothing(e)}>
                         <input
                             type="text"
                             value={categoryName}
                             className="category-name-input"
-                            onChange={(e) => setCategoryName(e.target.value)} />
+                            onChange={(e) => handleChange(e)} />
                     </form>
                 </div>
                 <div className="category-items-container">
