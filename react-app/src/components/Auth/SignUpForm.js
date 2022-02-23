@@ -18,18 +18,21 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     
-    const data = await dispatch(signUp(full_name, username, email, password));
+    //const data = await dispatch(signUp(full_name, username, email, password));
     
-    if (data) {
-      if (Array.isArray(data)){
-        if (password !== repeatPassword) {
-          console.log(errors)
-          data.push("password: Password must match")
+    if (password === repeatPassword) {
+      const data = await dispatch(signUp(full_name, username, email, password));
+
+      if (data) {
+        if (Array.isArray(data)){
+          setErrors(data)
         }
-        setErrors(data)
+        setPassword("")
+        setRepeatPassword("")
       }
-      setPassword("")
-      setRepeatPassword("")
+    }
+    if (password !== repeatPassword) {
+      setErrors(["password: Password must match"])
     }
   };
 

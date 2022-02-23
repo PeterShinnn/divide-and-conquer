@@ -22,6 +22,7 @@ function WorkSpaceDetail() {
 
     useEffect(() => {
         if (workspace) setWName(workspace[0]?.name)
+        setUserName([]);
     }, [dispatch, workspaceId])
 
 
