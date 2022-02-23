@@ -17,12 +17,21 @@ function SingleTask({ task }) {
     const handleEditName = (e) => {
         e.preventDefault();
 
-        const payload = {
-            'id': task.id,
-            'description': taskDescription,
-            'status': taskStatus
+        if (taskDescription === "") {
+            const payload = {
+                'id': task.id,
+                'description': "no task name",
+                'status': taskStatus
+            }
+            dispatch(editTask(payload));
+        } else {
+            const payload = {
+                'id': task.id,
+                'description': taskDescription,
+                'status': taskStatus
+            }
+            dispatch(editTask(payload));
         }
-        dispatch(editTask(payload));
     }
 
     // const handleEditName = (e) => {

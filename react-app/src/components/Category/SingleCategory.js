@@ -11,6 +11,11 @@ function SingleCategory({ category }) {
 
     const doNothing = (e) => {
         e.preventDefault();
+
+        if(categoryName === "") {
+            setCategoryName("New Category")
+            dispatch(editCategoryName(category.id, "New Category"));
+        }
     }
 
     const handleChange = (e) => {

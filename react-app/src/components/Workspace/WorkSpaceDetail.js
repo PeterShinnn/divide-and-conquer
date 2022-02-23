@@ -27,6 +27,11 @@ function WorkSpaceDetail() {
 
     const doNothing = (e) => {
         e.preventDefault();
+
+        if (wName === "") {
+            setWName("No name");
+            dispatch(editWorkspace(workspaceId, "No name"));
+        }
     }
 
     const changeName = (e) => {
