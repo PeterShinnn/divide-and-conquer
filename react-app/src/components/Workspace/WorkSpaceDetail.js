@@ -74,7 +74,7 @@ function WorkSpaceDetail() {
                                 className="form-edit-input"
                                 onChange={(e) => changeName(e)} />
                         </form>
-                        <p>**Please Press Enter after changing task name**</p>
+                        {/* <p>**Please Press Enter after changing task name**</p> */}
                         <div className="right-side-detail-header">
                             <div onClick={() => setShowProfileModal(true)} className="user-profile-tab">current user: {sessionUser?.username}</div>
                             {showProfileModal && (
