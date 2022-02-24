@@ -35,7 +35,7 @@
 1. Clone the project repository
 
   ```
-  git clone git@github.com:JTannerShaw/forthegram.git
+  git clone https://github.com/PeterShinnn/divide-and-conquer.git
   ```
 
 2. Install Dependencies
