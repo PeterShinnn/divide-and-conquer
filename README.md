@@ -125,10 +125,11 @@ Once the user is logged in, user can click the +Add new workspace button to make
 [![6.png](https://i.postimg.cc/5NXXXrTM/6.png)](https://postimg.cc/D8KvDx7C)
 
 ### Create Category
-After creating a new workspace, the user will be automatically redirected to the workspace that is newly created and from here the user can create a new category for that workspace by pressing the Add Category button that is on the page
+After creating a new workspace, the user will be automatically redirected to the workspace that is newly created and from here the user can create a new category for that workspace by pressing the Add Category button that is on the page. After a category is created, the user can create new task by typing a name for the task that need to do thats 3 characters or longer, otherwise the button will stay disabled and the user will not be able to add anything.
 [![7.png](https://i.postimg.cc/3JZPCDYY/7.png)](https://postimg.cc/7ffsqh5W)
 
 ### Updating Task
+One a user creates a new task, the user can interact with the task by clicking on differents parts of the task. The user can set the deadline by clicking on the Deadling tab on the right along with changing the status of the task by clicking the task status as well. The user also has the option to delete not just the task, but the task, categories and even the workspace if they wish.
 [![8.png](https://i.postimg.cc/t4C8rC4P/8.png)](https://postimg.cc/9rKx02TF)
 [![9.png](https://i.postimg.cc/1z82QC63/9.png)](https://postimg.cc/kVdfNyf0)
 [![10.png](https://i.postimg.cc/bv4MNxHH/10.png)](https://postimg.cc/5HqpsFr6)
