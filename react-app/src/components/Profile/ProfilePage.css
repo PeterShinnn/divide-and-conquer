@@ -1,0 +1,64 @@
+.profile-information-container{
+    display: flex;
+    padding-top: 60px;
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+}
+
+.user_name{
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.user-information{
+    width: 65%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-top: 20px;
+    /* display: flex;
+    align-items: center;
+    justify-content: space-between; */
+}
+
+.user-information label{
+    width: 80%;
+    font-size: 25px;
+    text-align: right;
+}
+
+.profile-information-container p{
+    font-size: 25px;
+    text-align: right;
+}
+
+.add-friend-btn{
+    border: none;
+    outline: none;
+    color: white;
+    font-size: 20px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: var(--primary-blue);
+}
+
+.add-friend-btn:disabled{
+    outline: none;
+    color: gray;
+    font-size: 20px;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    border: 1px solid gray;
+    background-color: white;
+}
+
+.add-friend-btn:hover{
+    cursor: pointer;
+    background-color: var(--darker-purple);
+}
+
+.add-friend-btn:active{
+    background-color: var(--primary-pink);
+}

@@ -28,10 +28,10 @@
 
 .create-task-btn:disabled{
     outline: none;
+    color: gray;
     pointer-events: none;
     background-color: white;
-    color: var(--primary-blue);
-    border: 1px solid var(--primary-blue);
+    border: 1px solid gray;
 }
 
 .create-task-btn:active{

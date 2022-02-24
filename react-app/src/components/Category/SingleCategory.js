@@ -64,7 +64,7 @@ function SingleCategory({ category }) {
                     className="create-task-input"
                     value={newTask}
                     onChange={(e) => setNewTask(e.target.value)}
-                    placeholder="Create new task"/>
+                    placeholder="Create new task (min: 3 characters long)"/>
                 <button disabled={newTask.length < 3} className="create-task-btn" type='submit'>Add</button>
             </form>
         </>
