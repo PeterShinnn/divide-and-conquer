@@ -68,9 +68,10 @@ hr{
 }
 
 .workspace-detail{
-    max-width: 30vw;
-    overflow: auto;
     height: auto;
+    max-width: 30vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .workspace-detail a{
@@ -81,10 +82,6 @@ hr{
 .workspace-detail a:hover{
     background-color: gainsboro;
 }
-
-/* .workspace-detail-container:hover{
-    background-color: gainsboro;
-} */
 
 .delete-icon{
     padding: 2px;

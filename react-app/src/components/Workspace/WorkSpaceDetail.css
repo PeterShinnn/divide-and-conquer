@@ -5,8 +5,8 @@
 .workspace-full-detail-header{
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding-bottom: 15px;
+    justify-content: space-between;
     border-bottom: 1px solid lightgray;
 }
 
@@ -91,8 +91,8 @@
     border: 1px solid gray;
 }
 
-/* .user-profile-tab:hover{
+.user-profile-tab:hover{
     outline: none;
     cursor: pointer;
     border: 1px solid var(--primary-pink);
-} */
+}
