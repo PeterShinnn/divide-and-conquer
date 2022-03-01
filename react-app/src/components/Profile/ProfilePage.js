@@ -23,11 +23,11 @@ function ProfilePage({ user }) {
                     </p>
                 </div>
                 
-                {sessionUser?.id === user.id ?
+                {/* {sessionUser?.id === user.id ?
                     <></>
                     :
                     <button className="add-friend-btn">Add Friend</button>
-                }
+                } */}
             </div>
         </>
     )

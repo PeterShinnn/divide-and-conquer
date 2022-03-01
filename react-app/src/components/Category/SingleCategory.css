@@ -1,8 +1,12 @@
 .category-header-container{
-    margin: 20px;
+    /* margin: 20px;
     display: flex;
+    justify-content: space-between; */
+    margin: 20px;
+    display: grid;
     font-size: 18px;
-    justify-content: space-between;
+    align-items: center;
+    grid-template-columns: 2.5fr 1fr 1fr .5fr;
 }
 
 .create-task-input-form{

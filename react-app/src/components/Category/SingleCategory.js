@@ -48,11 +48,12 @@ function SingleCategory({ category }) {
                             onChange={(e) => handleChange(e)} />
                     </form>
                 </div>
-                <div className="category-items-container">
+                
                     <div className="category-item cat-item-padding">Deadline</div>
                     <div className="category-item cat-item-padding">Status</div>
                     <div className="category-item"><i onClick={() => handleDelete()} className="fa-solid fa-trash-can garbage-cat-icon"></i></div>
-                </div>
+                    {/* <div className="category-items-container">
+                </div> */}
             </div>
             <div className="single-task-container">
                 {category?.tasks?.map(task => (

@@ -1,75 +1,38 @@
+.single-task-container{
+    width: 90%;
+    margin: 0 auto;
+}
+
 .single-task-information-container{
-    width: 85%;
-    display: flex;
-    margin: 0 50px;
+    display: grid;
     align-items: center;
-    text-align: center;
-    justify-content: space-between;
+    grid-template-columns: 2.5fr 1fr 1fr .5fr;
 }
 
-.single-task-information{
+.single-task-information-container input{
+    width: 100%;
     height: 30px;
-    display: flex;
-    align-items: center;
+    font-size: 15px;
+    align-self: center;
     background-color: var(--off-white);
-}
-
-.calendar-container{
-    position: relative;
-}
-
-.calendar-picker{
-    height: 30px;
-    border: none;
-    font-size: 16px;
-    background-color: var(--off-white);
-}
-
-
-.task-padding{
-    width: 195px;
-    margin-right: 40px;
-}
-
-.calendar-icon{
-    position: absolute;
-    top: 8px;
-    right: 5px;
-    z-index: 0;
-}
-
-.status-option-container{
-    height: 30px;
-    width: 100px;
-    font-size: 16px;
-    text-align: center;
 }
 
 .task-description-name-input{
-    width: 35vw;
-    height: 30px;
     border: none;
     outline: none;
-    padding-left: 5px;
-    background-color: var(--off-white);
 }
 
 .task-description-name-input:hover{
     border: 1px dotted black;
 }
 
-.status-picker-container{
-    position: relative;
+.calendar-picker{
+    border: none;
+    outline: none;
 }
 
-.status-picker-list{
-    z-index: 5;
-    width: 195px;
-    list-style: none;
-    position: absolute;
-    text-align: center;
-    background-color: white;
-    border: 1px solid grey;
+.calendar-picker:hover{
+    border: 1px dotted black;
 }
 
 .status-option{
@@ -79,7 +42,33 @@
 }
 
 .status-option-none{
-    height: 41px;
+    height: 39px;
+}
+
+.status-picker-list{
+    z-index: 5;
+    width: 195px;
+    list-style: none;
+    position: absolute;
+    text-align: center;
+    align-self: center;
+    border: 1px solid grey;
+    background-color: white;
+}
+
+.calendar-container{
+    position: relative;
+}
+
+.calendar-icon{
+    position: absolute;
+    top: 8px;
+    right: 5px;
+    z-index: 0;
+}
+
+.task-trash-icon{
+    padding-left: 10px;
 }
 
 .task-trash-icon:hover{

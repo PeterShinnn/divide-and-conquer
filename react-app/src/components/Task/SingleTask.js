@@ -76,36 +76,37 @@ function SingleTask({ task }) {
                         className="task-description-name-input"
                         onChange={(e) => handleEditName(e)} />
                 </form>
-                <div className="single-task-information">
-                    {/* <div className="task-info task-padding">Task Deadline</div> */}
-                    <div className="task-info task-padding">
-                        <div className="calendar-container">
-                            <DatePicker
-                                className="calendar-picker"
-                                selected={startDate}
-                                onChange={(date) => handleDateChange(date)}
-                            />
-                            <i className="fa-solid fa-calendar calendar-icon"></i>
-                        </div>
-                    </div>
-                    <div className={`task-info task-padding task-${taskStatus}`}>
-                        <div className="status-picker-container">
-                            <button onClick={() => showStatusMenu ? setStatusMenu(false) : setStatusMenu(true)} className={`task-status`}>{taskStatus}</button>
-                            {showStatusMenu ?
-                                <ul className="status-picker-list">
-                                    <li className="task- status-option status-option-none" value={""} onClick={(e) => handleTaskStatus(e)}></li>
-                                    <li className="task-Stuck status-option" value={"Stuck"} onClick={(e) => handleTaskStatus(e)}>Stuck</li>
-                                    <li className="task-In status-option" value={"In Progress"} onClick={(e) => handleTaskStatus(e)}>In Progress</li>
-                                    <li className="task-Done status-option" value={"Done"} onClick={(e) => handleTaskStatus(e)}>Done</li>
-                                </ul>
-                                : <></>
-                            }
-                        </div>
-                    </div>
-                    <div className="task-info">
-                        <i onClick={() => handleDeleteTask()} className="fa-solid fa-trash-can task-trash-icon"></i>
+
+                {/* <div className="task-info task-padding">Task Deadline</div> */}
+                <div className="task-info task-padding">
+                    <div className="calendar-container">
+                        <DatePicker
+                            className="calendar-picker"
+                            selected={startDate}
+                            onChange={(date) => handleDateChange(date)}
+                        />
+                        <i className="fa-solid fa-calendar calendar-icon"></i>
                     </div>
                 </div>
+                <div className={`task-info task-padding task-${taskStatus}`}>
+                    <div className="status-picker-container">
+                        <button onClick={() => showStatusMenu ? setStatusMenu(false) : setStatusMenu(true)} className={`task-status`}>{taskStatus}</button>
+                        {showStatusMenu ?
+                            <ul className="status-picker-list">
+                                <li className="task- status-option status-option-none" value={""} onClick={(e) => handleTaskStatus(e)}></li>
+                                <li className="task-Stuck status-option" value={"Stuck"} onClick={(e) => handleTaskStatus(e)}>Stuck</li>
+                                <li className="task-In status-option" value={"In Progress"} onClick={(e) => handleTaskStatus(e)}>In Progress</li>
+                                <li className="task-Done status-option" value={"Done"} onClick={(e) => handleTaskStatus(e)}>Done</li>
+                            </ul>
+                            : <></>
+                        }
+                    </div>
+                </div>
+                <div className="task-info">
+                    <i onClick={() => handleDeleteTask()} className="fa-solid fa-trash-can task-trash-icon"></i>
+                </div>
+                {/* <div className="single-task-information">
+                </div> */}
             </div>
 
         </>

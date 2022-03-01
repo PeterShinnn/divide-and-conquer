@@ -1,7 +1,7 @@
 .main-container {
     display: flex;
     justify-content: center;
-    height: 800px;
+    height: 100vh;
     background: linear-gradient(0.25turn, #180c64,#000, #2b2b88);
 }
 
