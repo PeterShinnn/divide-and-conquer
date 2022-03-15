@@ -26,6 +26,8 @@ class User(db.Model, UserMixin):
     workspaces = db.relationship('Workspace', back_populates='user',cascade="all, delete-orphan")
     task_categories = db.relationship('TaskCategory',back_populates='user',cascade="all, delete-orphan")
     tasks = db.relationship('Task', back_populates='user',cascade="all, delete-orphan")
+    curr_user = db.relationship('FriendRequest', back_populates="friend", foreign_keys="FriendRequest.friend_id", cascade="all,delete-orphan")
+    request_user = db.relationship('FriendRequest', back_populates="requester", foreign_keys="FriendRequest.requester_id", cascade="all,delete-orphan")
 
     def to_dict(self):
         return {
