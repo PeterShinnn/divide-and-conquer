@@ -1,18 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react'; //, useState
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux'; //, useSelector
 
 import { logout } from '../../store/session';
 import smallerLogo from '../../images/smallerLogo.png';
 
 import './SideNavBar.css';
-import { Modal } from '../../context/Modal';
-import FriendRequest from '../FriendRequest/FriendRequestModal';
+// import { Modal } from '../../context/Modal';
+// import FriendRequest from '../FriendRequest/FriendRequestModal';
 
 function SideNavBar() {
     const dispatch = useDispatch()
-    const notifications = useSelector(state => state.requests.requests);
-    const [showNotification, setShowNotification] = useState(false);
+    // const notifications = useSelector(state => state.requests.requests);
+    // const [showNotification, setShowNotification] = useState(false);
 
     const onLogout = async (e) => {
         await dispatch(logout());

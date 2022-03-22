@@ -7,7 +7,10 @@ import LogoutButton from '../Auth/LogoutButton';
 
 const NavBar = () => {
   const sessionUser = useSelector((state) => state.session.user);
-
+  const toggleMenu = () => {
+    const mobileMenu = document.querySelector('.mobile-nav-items');
+    mobileMenu.classList.toggle('active')
+  }
   let sessionLink;
 
   if (sessionUser) {
@@ -73,7 +76,7 @@ const NavBar = () => {
               </li>
             </span>
           </ul>
-          <a href='#' className="navbar-toggle-btn">
+          <a href='#' className="navbar-toggle-btn" onClick={() => toggleMenu()}>
             <span className="bar"></span>
             <span className="bar"></span>
             <span className="bar"></span>

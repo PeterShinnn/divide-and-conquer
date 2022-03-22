@@ -7,7 +7,7 @@ import SingleCategory from "../Category/SingleCategory";
 import CreateWorkSpaceForm from "./WorkspaceForm";
 import ProfilePage from "../Profile/ProfilePage";
 import { Modal } from "../../context/Modal";
-import SearchResult from "../SearchResult/SearchResult";
+// import SearchResult from "../SearchResult/SearchResult";
 import './WorkSpaceDetail.css';
 
 function WorkSpaceDetail() {
@@ -17,7 +17,7 @@ function WorkSpaceDetail() {
     const sessionUser = useSelector(state => state.session.user);
 
     const [wName, setWName] = useState("");
-    const [userNames, setUserName] = useState([]);
+    // const [userNames, setUserName] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [showProfileModal, setShowProfileModal] = useState(false);
 
@@ -25,7 +25,7 @@ function WorkSpaceDetail() {
 
     useEffect(() => {
         if (workspace) setWName(workspace[0]?.name)
-        setUserName([]);
+        // setUserName([]);
     }, [dispatch, workspaceId])
 
 
@@ -48,19 +48,19 @@ function WorkSpaceDetail() {
         dispatch(createCategory(id, "New Category")).then(() => console.log(workspaces))
     }
 
-    const handleSearch = async (e) => {
-        if (e.target.value === "") {
-            setUserName([]);
-            return;
-        }
+    // const handleSearch = async (e) => {
+    //     if (e.target.value === "") {
+    //         setUserName([]);
+    //         return;
+    //     }
 
-        const response = await fetch(`/api/users/${e.target.value}`);
+    //     const response = await fetch(`/api/users/${e.target.value}`);
 
-        if (response.ok) {
-            const users = await response.json();
-            setUserName(users.users);
-        }
-    }
+    //     if (response.ok) {
+    //         const users = await response.json();
+    //         setUserName(users.users);
+    //     }
+    // }
 
     return (
         <>
