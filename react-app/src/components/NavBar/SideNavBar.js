@@ -28,7 +28,7 @@ function SideNavBar() {
                 <ul className="menu-items-btn">
                     <div><li><Link to='/taskboard'><img id="website-logo" src={smallerLogo} alt="website-logo" /></Link></li></div>
                     <div><li><Link to='/taskboard'><i className="fa-solid fa-table-cells-large nav-icon"></i></Link></li></div>
-                    {notifications?.length ?
+                    {/* {notifications?.length ?
                         <>
                             <div onClick={() => setShowNotification(true)}><li><i className="fa-solid fa-envelope-open-text got-request nav-icon"></i></li></div>
                             {showNotification && (
@@ -45,7 +45,7 @@ function SideNavBar() {
                                 </Modal>
                             )}
                         </>
-                    }
+                    } */}
                     <div><li><Link to={{ pathname: "https://www.linkedin.com/in/petershin731/" }} target="_blank"><i className="fa-brands fa-linkedin nav-icon"></i></Link></li></div>
                     <div><li><Link to={{ pathname: "https://github.com/PeterShinnn" }} target="_blank"><i className="fa-brands fa-github-square nav-icon"></i></Link></li></div>
                 </ul>

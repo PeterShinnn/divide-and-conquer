@@ -96,7 +96,7 @@ function WorkSpaceDetail() {
                 :
                 <div className="no-workspace-container">
                     <h2 className="home-workspace-direction">Hi there!</h2>
-                    <div className="user-search-bar">
+                    {/* <div className="user-search-bar">
                         <input
                             //value={searchName}
                             onChange={(e) => handleSearch(e)}
@@ -111,7 +111,7 @@ function WorkSpaceDetail() {
                                 ))}
                             </div>
                         )}
-                    </div>
+                    </div> */}
                     <button onClick={() => setShowModal(true)} className="create-workspace-btn">Create new workspace</button>
                     {showModal && (
                         <Modal onClose={() => setShowModal(false)}>
