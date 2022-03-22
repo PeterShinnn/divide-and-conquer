@@ -49,7 +49,6 @@ def edit_task(id):
     if form.validate_on_submit():
         task = Task.query.get(id)
         task.description = form.data['description']
-        #task.deadline = form.data['deadline']
         task.status = form.data['status']
         
         db.session.commit()

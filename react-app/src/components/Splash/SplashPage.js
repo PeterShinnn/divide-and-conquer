@@ -1,11 +1,17 @@
+import { useSelector } from 'react-redux';
+import { Redirect, useHistory } from "react-router-dom";
+
 import CategoryBox from "./CategoryBox";
-import { useHistory } from "react-router-dom";
 import "./SplashPage.css";
 
 function SplashPage() {
     const history = useHistory();
+    const sessionUser = useSelector(state => state.session.user);
+    
     const firefly = ['.1','.2','.3','.4','.5','.6']
     
+    if (sessionUser) return <Redirect to='/taskboard' />
+
     return (
         <>
             <div className="main-container">

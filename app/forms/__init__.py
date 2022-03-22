@@ -7,3 +7,4 @@ from .edit_task_form import EditTaskForm
 from .edit_task_form import EditTaskDateForm
 from .category_form import CategoryForm
 from .edit_category_form import EditCategoryForm
+from .friend_form import FriendRequestForm

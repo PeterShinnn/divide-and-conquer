@@ -1,10 +1,20 @@
-import React from 'react'; //, { useEffect, useState } 
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react'; //,  useState } 
+import { useDispatch ,useSelector } from 'react-redux';
 
+import { makeFriendRequest } from '../../store/request';
 import './ProfilePage.css';
 
 function ProfilePage({ user }) {
+    const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
+
+    const addFriend = (id) => {
+        dispatch(makeFriendRequest(id));
+    }
+
+    useEffect(() => {
+
+    }, [dispatch])
 
     return (
         <>
@@ -23,11 +33,11 @@ function ProfilePage({ user }) {
                     </p>
                 </div>
                 
-                {/* {sessionUser?.id === user.id ?
+                {sessionUser?.id === user.id ?
                     <></>
                     :
-                    <button className="add-friend-btn">Add Friend</button>
-                } */}
+                    <button onClick={() => addFriend(user.id)} className="add-friend-btn">Add Friend</button>
+                }
             </div>
         </>
     )
