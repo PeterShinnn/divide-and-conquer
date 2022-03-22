@@ -5,10 +5,12 @@ def seed_workspaces():
     workspace1 = Workspace(name="divide&conquer",user_id=1)
     workspace2 = Workspace(name="App Academy",user_id=1)
     workspace3 = Workspace(name="Career Quest",user_id=1)
+    workspace4 = Workspace(name="Career Quest",user_id=2)
     
     db.session.add(workspace1)
     db.session.add(workspace2)
     db.session.add(workspace3)
+    db.session.add(workspace4)
 
     db.session.commit()
 

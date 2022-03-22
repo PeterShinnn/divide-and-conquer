@@ -42,3 +42,7 @@
 .nav-logout-btn{
     margin-bottom: 30px;
 }
+
+.got-request{
+    color: var(--primary-pink);
+}

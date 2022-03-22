@@ -1,16 +1,21 @@
-import React from 'react';
-import { useSelector } from 'react-redux'; //, useDispatch
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
 import SideNavBar from '../NavBar/SideNavBar';
-import WorkSpaceDetail from '../Workspace/WorkSpaceDetail';
 import WorkspaceTab from '../Workspace/WorkspaceTab';
+import { getFriendRequest } from '../../store/request';
+import WorkSpaceDetail from '../Workspace/WorkSpaceDetail';
 import './TaskBoard.css';
 
 function TaskBoard() {
-    //const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const sessionUser = useSelector(state => state.session.user);
 
+    useEffect(() => {
+        dispatch(getFriendRequest());
+    }, [dispatch])
+    
     if (!sessionUser) return <Redirect to='/login' />
 
     return (

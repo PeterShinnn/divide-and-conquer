@@ -20,7 +20,7 @@ def validation_errors_to_error_messages(validation_errors):
 @workspace_routes.route('/')
 # @login_required
 def get_all_workspaces():
-    workspaces = Workspace.query.all()
+    workspaces = Workspace.query.filter(Workspace.user_id == current_user.id).all()
     return {'workspaces': [workspace.to_dict() for workspace in workspaces]}
 
 

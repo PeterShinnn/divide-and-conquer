@@ -294,3 +294,18 @@
     -webkit-animation-delay: 3s, 1.5s;
     animation-delay: 3s, 1.5s
 }
+
+
+@media (max-width: 800px){
+    .main-container {
+        height: 100%;
+    }
+
+    .category-container{
+        justify-content: center;
+    }
+
+    .sign-up-btn{
+        margin-bottom: 30px;
+    }
+}

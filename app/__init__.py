@@ -40,7 +40,7 @@ app.register_blueprint(workspace_routes, url_prefix='/api/workspaces')
 app.register_blueprint(category_routes, url_prefix='/api/categories')
 app.register_blueprint(task_routes, url_prefix='/api/tasks')
 app.register_blueprint(friend_list_routes, url_prefix='/api/friends')
-app.register_blueprint(request_routes, url_prefix='/api/requests')
+app.register_blueprint(request_routes, url_prefix='/api/frequests')
 db.init_app(app)
 Migrate(app, db)
 
