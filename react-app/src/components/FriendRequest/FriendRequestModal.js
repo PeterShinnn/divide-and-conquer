@@ -1,5 +1,5 @@
 import React from 'react';
-import { useSelector } from 'react-redux'; //, useDispatch
+// import { useSelector } from 'react-redux'; //, useDispatch
 
 function FriendRequest({ friend_requests }){
     //const notifications = useSelector(state => state.requests.requests);
