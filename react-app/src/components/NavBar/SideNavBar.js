@@ -22,8 +22,13 @@ function SideNavBar() {
 
     }, [dispatch])
 
+    const toggleMenu = () => {
+        const sideNavMenu = document.querySelector('.sidenav-items');
+        sideNavMenu.classList.toggle('active')
+    }
+
     return (
-        <>
+        <div>
             <div className="side-nav-bar-container">
                 <ul className="menu-items-btn">
                     <div><li><Link to='/taskboard'><img id="website-logo" src={smallerLogo} alt="website-logo" /></Link></li></div>
@@ -56,7 +61,23 @@ function SideNavBar() {
                     </div>
                 </div>
             </div>
-        </>
+            <div className="mobile-side-nav-container">
+                <a href='#' className="navbar-toggle-btn" onClick={() => toggleMenu()}>
+                    <span className="bar"></span>
+                    <span className="bar"></span>
+                    <span className="bar"></span>
+                </a>
+
+                <div className="workspace-logo"><Link to='/taskboard'><img id="website-logo" src={smallerLogo} alt="website-logo" /></Link></div>
+                <ul className="sidenav-items">
+                    <div><li><Link to='/taskboard'>Home</Link></li></div>
+                    <div><li><Link to={{ pathname: "https://www.linkedin.com/in/petershin731/" }} target="_blank">Linkedin</Link></li></div>
+                    <div><li><Link to={{ pathname: "https://github.com/PeterShinnn" }} target="_blank">Github</Link></li></div>
+                    <div><li><Link to={{ pathname: 'https://angel.co/u/peter-shin-6' }} target="_blank">AngelList</Link></li></div>
+                </ul>
+            </div>
+
+        </div>
     )
 }
 
