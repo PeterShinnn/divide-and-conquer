@@ -54,3 +54,12 @@
     top: 50%;
     position: absolute;
 }
+
+@media (max-width: 800px){
+    .demo-login-text:before{
+        width: 115px;
+    }
+    .demo-login-text:after{
+        width: 115px;
+    }
+}

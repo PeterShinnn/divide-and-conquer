@@ -63,7 +63,7 @@ function WorkSpaceDetail() {
     // }
 
     return (
-        <>
+        <div className="entire-workspace-detail-tab">
             {workspaceId ?
                 <div className="workspace-full-detail-container">
                     <div className="workspace-full-detail-header">
@@ -121,7 +121,7 @@ function WorkSpaceDetail() {
                 </div>
             }
 
-        </>
+        </div>
     )
 }
 

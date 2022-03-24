@@ -1,27 +1,28 @@
-hr{
+hr {
     width: 80%;
     color: gray;
     margin-top: 20px;
 }
 
-.entire-workspace-container{
-    background-color: var(--off-white);
+.entire-workspace-container {
     width: 16vw;
+    height: 100vh;
     max-width: 17vw;
+    background-color: var(--off-white);
 }
 
-.workspace-container{
+.workspace-container {
     display: flex;
     align-items: center;
     flex-direction: column;
 }
 
-.workspace-title-tag{
+.workspace-title-tag {
     margin-top: 20px;
     font-size: 20px;
 }
 
-.workspace-tag-box{
+.workspace-tag-box {
     display: flex;
     margin-top: 20px;
     padding: 10px 15px;
@@ -29,26 +30,26 @@ hr{
     border: 1.5px solid black;
 }
 
-.briefcase-icon{
+.briefcase-icon {
     font-size: 20px;
     margin-right: 10px;
     color: var(--primary-salmon);
 }
 
-.add-workspace-btn{
+.add-workspace-btn {
     padding: 10px;
     font-size: 15px;
     margin-top: 15px;
     border: 1px solid transparent;
 }
 
-.add-workspace-btn:hover{
+.add-workspace-btn:hover {
     cursor: pointer;
     border-radius: 5px;
     background-color: lightgray;
 }
 
-.single-workspace{
+.single-workspace {
     width: 100%;
     margin: 10px;
     display: flex;
@@ -58,7 +59,7 @@ hr{
     border: 1px solid transparent;
 }
 
-.workspace-detail-container{
+.workspace-detail-container {
     width: 100%;
     display: flex;
     padding: 5px 10px;
@@ -67,34 +68,69 @@ hr{
     justify-content: space-between;
 }
 
-.workspace-detail{
+.workspace-detail {
     height: auto;
     max-width: 30vw;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
-.workspace-detail a{
+.workspace-detail a {
     color: black;
     text-decoration: none;
 }
 
-.workspace-detail a:hover{
+.workspace-detail a:hover {
     background-color: gainsboro;
 }
 
-.delete-icon{
+.delete-icon {
     padding: 2px;
     border-radius: 5px;
     border: 1px solid transparent;
 }
 
-.delete-icon:hover{
+.delete-icon:hover {
     color: red;
     cursor: pointer;
     background-color: silver;
 }
 
-.delete-icon:active{
+.delete-icon:active {
     color: var(--primary-blue);
+}
+
+.mobile-workspace-container {
+    width: 100%;
+    display: none;
+}
+
+.mobile-workspace-items {
+    width: 100%;
+    display: none;
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+}
+
+@media (max-width: 800px) {
+    .entire-workspace-container {
+        display: none;
+    }
+
+    .mobile-workspace-container {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        flex-direction: column;
+    }
+
+    .mobile-workspace-items.active{
+        display: flex;
+    }
+
+    .workspace-detail {
+        max-width: 50vw;
+    }
 }

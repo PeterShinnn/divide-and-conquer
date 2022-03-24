@@ -20,12 +20,17 @@ function WorkspaceTab() {
         history.push('/taskboard')
     }
 
+    const toggleMenu = () => {
+        const workspaceMenu = document.querySelector('.mobile-workspace-items');
+        workspaceMenu.classList.toggle('active')
+    }
+
     useEffect(() => {
         dispatch(getWorkspaceByUser(sessionUser?.id));
     }, [dispatch, sessionUser])
 
     return (
-        <>
+        <div>
             <div className="entire-workspace-container">
                 <div className="workspace-container">
                     <p className="workspace-title-tag">Workspaces</p>
@@ -36,7 +41,7 @@ function WorkspaceTab() {
                     <div onClick={() => setShowModal(true)} className="add-workspace-btn">+ Add New Workspace</div>
                     {showModal && (
                         <Modal onClose={() => setShowModal(false)}>
-                            <CreateWorkSpaceForm onClose={() => setShowModal(false)}/>
+                            <CreateWorkSpaceForm onClose={() => setShowModal(false)} />
                         </Modal>
                     )}
                     <hr />
@@ -53,7 +58,37 @@ function WorkspaceTab() {
                     ))}
                 </div>
             </div>
-        </>
+            <div className="entire-mobile-workspace-container">
+                <div className="mobile-workspace-container">
+                    <div className="workspace-tag-box" onClick={() => toggleMenu()}>
+                        <i className="fa-solid fa-briefcase briefcase-icon mobile-icon"></i>
+                        <p>My Workspace Menu</p>
+                    </div>
+                    <div className="mobile-workspace-items">
+                        <div onClick={() => setShowModal(true)} className="add-workspace-btn">+ Add New Workspace</div>
+                        {showModal && (
+                            <Modal onClose={() => setShowModal(false)}>
+                                <CreateWorkSpaceForm onClose={() => setShowModal(false)} />
+                            </Modal>
+                        )}
+                        <hr />
+                        {workspaces?.map(workspace => (
+                            <div key={workspace?.id} className="single-workspace">
+                                <div className="workspace-detail-container">
+                                    <div className="workspace-detail">
+                                        <Link to={`/taskboard/${workspace?.id}`}>{workspace?.name}</Link> {/*/taskboard/:workspaceId' */}
+                                    </div>
+                                    <i onClick={() => handleDelete(workspace)} className="fa-solid fa-trash-can delete-icon"></i>
+                                </div>
+
+                            </div>
+                        ))}
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
     )
 }
 

@@ -11,3 +11,14 @@
     width: auto;
     height: 100px;
 }
+
+@media (max-width: 800px){
+    .sign-in-nav-bar-container{
+        height: 65px;
+    }
+
+    #sign-in-logo{
+        width: auto;
+        height: 65px;
+    }
+}

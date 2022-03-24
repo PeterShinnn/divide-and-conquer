@@ -75,3 +75,25 @@
     padding: 20px;
     border: 1px solid red;
 }
+
+@media (max-width: 800px){
+    .log-in-form{
+        width: 100%;
+        font-size: 14px;
+        text-align: center;
+    }
+    .email-inputs, .password-inputs{
+        width: 100%;
+        align-items: center;
+        justify-items: center;
+        flex-direction: column;
+    }
+
+    .login-btn{
+        padding: 20px 50px;
+    }
+
+    label{
+        margin-bottom: 10px;
+    }
+}

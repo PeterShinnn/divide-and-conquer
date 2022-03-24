@@ -8,6 +8,7 @@
     flex-direction: column;
     justify-content: space-between;
     background-color: var(--primary-dark);
+    height: 100vh;
 }
 
 .menu-items-btn{
@@ -45,4 +46,48 @@
 
 .got-request{
     color: var(--primary-pink);
+}
+
+.sidenav-items{
+    display: none;
+    list-style: none;
+}
+
+.sidenav-items a{
+    color: white;
+    font-size: 17px;
+    text-decoration: none;
+}
+
+.mobile-side-nav-container{
+    display: none;
+}
+
+@media (max-width: 800px){
+    .mobile-side-nav-container{
+        display: flex;
+        flex-direction: column;
+        background-color: var(--primary-dark);
+    }
+    .side-nav-bar-container{
+        display: none;
+        flex-direction: column;
+    }
+    
+    .sidenav-items li {
+        margin: 7px 0;
+    }
+
+    .sidenav-items.active{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        color: white;
+    }
+
+    .workspace-logo{
+        margin: 15px 0 0 10px;
+    }
+    
+
 }

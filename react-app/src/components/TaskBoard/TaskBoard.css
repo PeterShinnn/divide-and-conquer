@@ -1,5 +1,14 @@
 .taskboard-container{
-    display: grid;
+    /* display: grid;
     height: 100vh;
-    grid-template-columns: .5fr 1.5fr 8fr;;
+    grid-template-columns: .5fr 1.5fr 8fr;; */
+    display: flex;
+    
+}
+
+@media (max-width: 800px){
+    .taskboard-container{
+        display: flex;
+        flex-direction: column;
+    }
 }

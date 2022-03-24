@@ -130,3 +130,9 @@
     color: red;
     cursor: pointer;
 }
+
+@media (max-width: 800px){
+    .create-task-input-form{
+        margin-left: 0;
+    }
+}

@@ -1,3 +1,7 @@
+.entire-workspace-detail-tab{
+    width: 100vw;
+}
+
 .workspace-full-detail-container{
     margin: 10px;
 }
@@ -95,4 +99,20 @@
     outline: none;
     cursor: pointer;
     border: 1px solid var(--primary-pink);
+}
+
+@media (max-width: 800px){
+    .no-workspace-container{
+        margin-top: 5vh;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .create-workspace-btn{
+        margin: 0;
+    }
+
+    .workspace-full-detail-header{
+        display: none;
+    }
 }
